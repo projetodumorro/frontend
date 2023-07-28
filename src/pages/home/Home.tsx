@@ -2,7 +2,7 @@ import React from 'react';
 //import homeLogo from '../../assets/home.png'
 import './Home.css';
 
-
+//alterar navbar "blog pessoal; cores; atentos as tasks (requisitos)"
 function Home() {
     return (
         <>
