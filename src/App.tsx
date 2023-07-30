@@ -1,21 +1,28 @@
-import Home from './pages/home/Home';
+import React from 'react';
 import './App.css';
-import React, { useState } from 'react';
+import Home from './pages/home/Home';
+import Navbar from './components/navBar/NavBar';
+import Footer from './components/footer/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/login/Login';
+import Sobre from "./pages/sobre/Sobre";
 
 function App() {
-  const [valor, setValor] = useState(0);
-
-  function handleClick() {
-    setValor(valor + 1);
-  }
   return (
-    //  <Home  title="Componente Home"
-    //         description="Este é um componente Home que recebe props."/>
-    <div>
-      <p>O valor é: {valor}</p>
-      <button onClick={handleClick}>Adicionar 1</button>
-    </div>
-  );
+    <>
+    <BrowserRouter>
+        <Navbar />
+          <div className='min-h-[80vh]'>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/sobre" element={<Sobre />} />
+            </Routes>
+          </div>
+          <Footer />
+        </BrowserRouter>
+    </>
+);
 }
-
 export default App;
