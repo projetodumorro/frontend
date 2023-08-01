@@ -1,13 +1,13 @@
-import Item from './Item';
+import Categoria from './Categoria';
 import Usuario from './Usuario';
 
-export default interface Categoria {
+export default interface Item {
   id: number;
   nome: string;
   descricao: string;
   foto: string;
-  //preco: float;
-  //quantidade: number;
-  usuario: Usuario | null;
+  preco: number;
+  quantidade: number;
   categoria: Categoria | null;
+  usuario: Usuario | null;
 }
