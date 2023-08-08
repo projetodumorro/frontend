@@ -8,7 +8,7 @@ import Login from './pages/login/Login';
 import Cadastro from './pages/cadastro/Cadastro';
 import Home from './pages/home/Home';
 import Sobre from './pages/sobre/Sobre'
-import Categoria from './pages/categoria/Categoria';
+import Categoria from './components/categoria/Categoria';
 import { AuthProvider } from './contexts/AuthContext';
 import ListaCategorias from './components/categorias/listaCategorias/ListaCategorias';
 import FormularioCategoria from './components/categorias/formularioCategoria/FormularioCategoria';
@@ -32,7 +32,7 @@ function App() {
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/sobre" element={<Sobre />} />
               <Route path="/home" element={<Home />} />
-              <Route path="/categoria" element={<Categoria/>} />
+              <Route path="/categoria" element={<Categoria />} />
 
               <Route path="/categorias" element={<ListaCategorias />} />
               <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
