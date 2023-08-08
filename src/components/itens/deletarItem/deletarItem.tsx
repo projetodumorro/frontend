@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useContext,useState,useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../../contexts/AuthContext'
 import Item from '../../../models/Item'
 import { buscar, deletar } from '../../../services/Service'
+
 
 function DeletarItem() {
     const [item, setItem] = useState<Item>({} as Item)
@@ -72,8 +73,8 @@ function DeletarItem() {
       <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
       <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>Item</header>
       <div className="p-4">
-        <p className='text-xl h-full'>{item.titulo}</p>
-        <p>{item.texto}</p>
+        <p className='text-xl h-full'>{item.nome}</p>
+        <p>{item.descricao}</p>
       </div>
       <div className="flex">
         <button className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2' onClick={retornar}>Não</button>

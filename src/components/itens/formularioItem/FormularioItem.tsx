@@ -90,7 +90,7 @@ function FormularioItem() {
   }
 
   function retornar() {
-    navigate('/categorias');
+    navigate('/itens');
   }
 
   async function gerarNovoItem(e: ChangeEvent<HTMLFormElement>) {
@@ -156,15 +156,53 @@ function FormularioItem() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="titulo">Texto do item</label>
+          <label htmlFor="titulo">Descrição do item</label>
           <input
             value={item.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             type="text"
-            placeholder="Descrição"
-            name="descrição"
+            placeholder="Descricao"
+            name="descricao"
             required
             className="border-2 border-slate-700 rounded p-2"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="foto">Link da Foto</label>
+          <input
+            value={item.foto}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+            type="text"
+            placeholder="Foto"
+            name="foto"
+            required
+            className="border-2 border-slate-700 rounded p-2"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="preco">Preço</label>
+          <input
+            value={item.preco}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+            type="text"
+            placeholder="preco"
+            name="preco"
+            required
+            className="border-2 border-slate-700 rounded p-2"
+            
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="quantidade">Quantidade</label>
+          <input
+            value={item.quantidade}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+            type="number"
+            placeholder="quantidade"
+            name="quantidade"
+            required
+            className="border-2 border-slate-700 rounded p-2"
+            min="0"
           />
         </div>
         <div className="flex flex-col gap-2">
