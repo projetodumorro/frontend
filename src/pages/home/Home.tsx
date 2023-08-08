@@ -1,5 +1,7 @@
 //import homeLogo from '../../assets/home.png'
 import './Home.css';
+import ListaItens from '../../components/itens/listaItens/ListaItens';
+import ModalItem from '../../components/itens/modalItem/ModalItem';
 
 function Home() {
     return (
@@ -11,8 +13,8 @@ function Home() {
               <p className='text-xl'>Expresse aqui seus pensamentos e opniões</p>
   
               <div className="flex justify-around gap-4">
-              
-                <button className='rounded bg-white text-blue-800 py-2 px-4'>Ver postagens</button>
+              <ModalItem />
+                <button className='rounded bg-white text-blue-800 py-2 px-4'>Ver itens</button>
               </div>
             </div>
   
@@ -22,7 +24,7 @@ function Home() {
             </div>
           </div>
         </div>
-        
+        <ListaItens/>
       </>
     );
 }
