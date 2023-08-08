@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
-import { data } from './data';
+//import { data } from './data';
+import { buscar, atualizar, cadastrar } from '../../services/Service';
 
 const Categoria = () => {
   //   console.log(data);
-  const [foods, setFoods] = useState(data);
+  const [get, setDados] = useState(buscar);
 
   //   Filter Type burgers/pizza/etc
-  const filterType = (category) => {
-    setFoods(
-      data.filter((item) => {
+  const filterType = (item) => {
+    setDados(
+      buscar.filter((item) => {
         return item.category === category;
       })
     );
   };
 
   //   Filter by price
-  const filterPrice = (price) => {
-    setFoods(
-      data.filter((item) => {
-        return item.price === price;
-      })
-    );
-  };
+  //const filterPrice = (price) => {
+    //setFoods(
+      //data.filter((item) => {
+        //{item.category}
+     // })
+   // );
+//};
 
   return (
     <div className='max-w-[1640px] m-auto px-4 py-12'>
@@ -36,7 +37,7 @@ const Categoria = () => {
           <p className='font-bold text-gray-700'>Filtro por Serviços e Produtos</p>
           <div className='flex justfiy-between flex-wrap'>
             <button
-              onClick={() => setFoods(data)}
+              onClick={() => setDados(buscar)}
               className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'
             >
               Todos

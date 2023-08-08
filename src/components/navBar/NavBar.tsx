@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineMenu, AiOutlineSearch, AiOutlineClose, AiFillTag } from 'react-icons/ai';
@@ -6,9 +7,13 @@ import {TbTruckDelivery} from 'react-icons/tb'
 import {FaUserFriends, FaWallet} from 'react-icons/fa'
 import {MdFavorite, MdHelp} from 'react-icons/md'
 import {UserCircleIcon} from '@heroicons/react/24/solid'
+import { AuthContext } from '../../contexts/AuthContext'
+
+
 
 const Navbar = () => {
 const [nav, setNav] = useState(false)
+
 
 let navigate = useNavigate()
 
@@ -88,5 +93,4 @@ const handleNav = () => {
     </div>
   );
 };
-
-export default Navbar;
+ export default Navbar;
