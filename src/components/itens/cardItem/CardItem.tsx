@@ -11,12 +11,20 @@ function CardItem({post}: CardItemProps) {
     <div className='border-slate-900 border flex flex-col rounded overflow-hidden justify-between'>
       <div>
         <div className="flex w-full bg-indigo-400 py-2 px-4 items-center gap-4">
-          <img src={post.usuario?.foto} className='h-12 rounded-full' alt="" />
+
+          <h3>{post.foto}</h3>
+          <h3>{post.nome}</h3>
+          <h3>{post.descricao}</h3>
+          <h3>{post.preco}</h3>
+          <h3>{post.quantidade}</h3>
+          <h3>{post.categoria?.descricao}</h3>
+
+          <img src={post.foto} className='h-12 rounded-full' alt="" />
           <h3 className='text-lg font-bold text-center uppercase '>{post.usuario?.nome}</h3>
         </div>
         <div className='p-4 '>
-          <h4 className='text-lg font-semibold uppercase'>{post.descricao}</h4>
-          <p>{post.descricao}</p>
+          <h4 className='text-lg font-semibold uppercase'>{post.preco}</h4>
+          <p>{post.quantidade}</p>
           <p>Tema: {post.categoria?.descricao}</p>
         
         </div>
