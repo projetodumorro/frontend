@@ -19,6 +19,9 @@ import DeletarItem from './components/itens/deletarItem/deletarItem';
 import Perfil from './pages/perfil/Perfil';
 import Navbar from './components/navBar/NavBar';
 
+import Carrinho from './pages/Cart/Carrinho';
+import Produtos from './pages/Produtos/Produtos';
+
 function App() {
   return (
     <>
@@ -43,6 +46,9 @@ function App() {
               <Route path="/editarItem/:id" element={<FormularioItem />} />
               <Route path="/deletarItem/:id" element={<DeletarItem />} />
               <Route path='/perfil' element={<Perfil />} />
+
+              <Route path='/produtos' element={<Produtos />} />
+              <Route path='/carrinho' element={<Carrinho />} />
             </Routes>
           </div>
           <Footer />

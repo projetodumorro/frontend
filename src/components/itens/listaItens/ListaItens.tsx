@@ -5,6 +5,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Item from '../../../models/Item';
 import { buscar } from '../../../services/Service';
 import CardItem from '../cardItem/CardItem';
+import { Link } from 'react-router-dom';
 
 function ListaItens() {
   const [itens, setItens] = useState<Item[]>([]);
@@ -76,7 +77,7 @@ function ListaItens() {
                 </span>
               </p>
             </div>
-            <button className='bg-orange-500 text-white p-1 rounded-full'>Comprar</button>
+            <Link to ={`/produtos/${item.id}`}><button className='bg-orange-500 text-white p-1 rounded-full'>Comprar</button></Link>
           </div>
         ))};
       </div>
