@@ -117,7 +117,7 @@ function FormularioCategoria() {
           <label htmlFor="descricao">Descrição da categoria</label>
           <input
             type="text"
-            placeholder="Descrição"
+            placeholder="Descricao"
             name='descricao'
             className="border-2 border-slate-700 rounded p-2"
             value={categoria.descricao}
