@@ -18,6 +18,7 @@ import FormularioItem from './components/itens/formularioItem/FormularioItem';
 import DeletarItem from './components/itens/deletarItem/deletarItem';
 import Perfil from './pages/perfil/Perfil';
 import Navbar from './components/navBar/NavBar';
+import Carrinho from './pages/Cart/Carrinho';
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
               <Route path="/editarItem/:id" element={<FormularioItem />} />
               <Route path="/deletarItem/:id" element={<DeletarItem />} />
               <Route path='/perfil' element={<Perfil />} />
+
+              <Route path='/carrinho' element={<Carrinho />} />
+
             </Routes>
           </div>
           <Footer />

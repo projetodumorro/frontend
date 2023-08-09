@@ -52,11 +52,14 @@ const handleNav = () => {
         <Link to='/categoria' className='p-4 hover:underline text-xl py-4 flex'>Categoria</Link>
         <Link to='/sobre' className='p-4 hover:underline text-xl py-4 flex'>Sobre</Link>
         <Link to="/login" className='p-4 text-xl py-4 flex'><FaUserFriends size={25}/></Link>
+        <Link to='/produtos'>Produtos</Link>
         <li className='p-4'>
           {/* Cart button */}
-      <button className='text-black hidden md:flex center p-1'>
-        <BsFillCartFill size={25} className='md:flex' />
-      </button>
+      <Link to= '/carrinho'>
+        <button className='text-black hidden md:flex center p-1'>
+          <BsFillCartFill size={25} className='md:flex' />
+        </button>
+      </Link>
 
         </li>
       </ul>
