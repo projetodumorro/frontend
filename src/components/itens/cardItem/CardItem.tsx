@@ -29,6 +29,7 @@ function CardItem({post}: CardItemProps) {
         <Link to={`/deletarItem/${post.id}`} className='text-white bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
           <button>Deletar</button>
         </Link>
+        
       </div>
     </div>
   )

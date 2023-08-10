@@ -140,11 +140,11 @@ function FormularioItem() {
 
   return (
     <div className="container flex flex-col mx-auto items-center">
-      <h1 className="text-4xl text-center my-8">{id !== undefined ? 'Editar Item' : 'Cadastrar Item'}</h1>
+      <h1 className="text-4xl text-center my-8 text-orange-500">{id !== undefined ? 'Editar Item' : 'Cadastrar Item'}</h1>
 
       <form onSubmit={gerarNovoItem} className="flex flex-col w-1/2 gap-4">
         <div className="flex flex-col gap-2">
-          <label htmlFor="titulo">Titulo do item</label>
+          <label className='text-orange-500' htmlFor="nome">Nome do item</label>
           <input
             value={item.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -152,11 +152,11 @@ function FormularioItem() {
             placeholder="Nome"
             name="nome"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-orange-500 rounded p-2"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="titulo">Descrição do item</label>
+          <label className='text-orange-500' htmlFor="descrição">Descrição do item</label>
           <input
             value={item.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -164,11 +164,11 @@ function FormularioItem() {
             placeholder="Descricao"
             name="descricao"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-orange-500 rounded p-2"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="foto">Link da Foto</label>
+          <label className='text-orange-500' htmlFor="foto">Link da Foto</label>
           <input
             value={item.foto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -176,11 +176,11 @@ function FormularioItem() {
             placeholder="Foto"
             name="foto"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-orange-500 rounded p-2"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="preco">Preço</label>
+          <label className='text-orange-500' htmlFor="preco">Preço do Item</label>
           <input
             value={item.preco}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -188,12 +188,12 @@ function FormularioItem() {
             placeholder="preco"
             name="preco"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-orange-500 rounded p-2"
             
           />
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="quantidade">Quantidade</label>
+        <div className="flex flex-col gap-2 text-orange-500">
+          <label className='text-orange-500' htmlFor="quantidade">Quantidade de Itens</label>
           <input
             value={item.quantidade}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -201,13 +201,13 @@ function FormularioItem() {
             placeholder="quantidade"
             name="quantidade"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-orage-500 rounded p-2"
             min="0"
           />
         </div>
-        <div className="flex flex-col gap-2">
-          <p>Categoria do item</p>
-          <select name="categoria" id="categoria" className='border p-2 border-slate-800 rounded' onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
+        <div className="flex flex-col gap-2 className='text-orange-500'">
+          <p className='text-orange-500'>Categoria do item</p>
+          <select name="categoria" id="categoria" className='border p-2 border-orange-500 rounded' onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
             <option value="" selected disabled>Selecione uma categoria</option>
             {categorias.map((categoria) => (
               <>

@@ -131,7 +131,7 @@ function Cadastro() {
     setConfirmaSenha(e.target.value)
   }
 
-  function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+  function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     setUsuario({
       ...usuario,
       [e.target.name]: e.target.value
@@ -172,7 +172,7 @@ function Cadastro() {
               name="nome"
               placeholder="Nome"
               className="border-2 border-orange-500 rounded p-2"
-              value={usuario.nome} 
+              value={usuario.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
@@ -184,7 +184,7 @@ function Cadastro() {
               name="usuario"
               placeholder="Usuario"
               className="border-2 border-orange-500 rounded p-2"
-              value={usuario.usuario} 
+              value={usuario.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
@@ -196,21 +196,25 @@ function Cadastro() {
               name="foto"
               placeholder="Foto"
               className="border-2 border-orange-500 rounded p-2"
-              value={usuario.foto} 
+              value={usuario.foto}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
           <div className="flex flex-col w-full">
             <label className="text-orange-500" htmlFor="foto">Tipo</label>
-            <input
-              type="text"
+
+            <select
               id="tipo"
               name="tipo"
-              placeholder="Tipo"
               className="border-2 border-orange-500 rounded p-2"
-              value={usuario.tipo} 
-              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-            />
+              value={usuario.tipo}
+              onChange={(e: ChangeEvent<HTMLSelectElement>) => atualizarEstado(e)}
+            >
+              <option value="" disabled>Selecione o tipo</option>
+              <option value="vendedor">Vendedor</option>
+              <option value="cliente">Cliente</option>
+            </select>
+
           </div>
           <div className="flex flex-col w-full">
             <label className="text-orange-500" htmlFor="senha">Senha</label>
@@ -220,7 +224,7 @@ function Cadastro() {
               name="senha"
               placeholder="Senha"
               className="border-2 border-orange-500 rounded p-2"
-              value={usuario.senha} 
+              value={usuario.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
@@ -234,6 +238,7 @@ function Cadastro() {
               className="border-2 border-orange-500 rounded p-2"
               value={confirmaSenha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
+
             />
           </div>
           <div className="flex justify-around w-full gap-8">
