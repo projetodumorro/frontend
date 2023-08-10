@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthContext';
-import Item from '../../../models/Item';
-import { buscar } from '../../../services/Service';
+import { AuthContext } from '../../contexts/AuthContext';
+import Item from '../../models/Item';
+import { buscar } from '../../services/Service';
 import { Link } from 'react-router-dom';
 
 
@@ -14,7 +14,7 @@ function ListaItens() {
 
   let navigate = useNavigate();
 
-  const { usuario, handleLogout, adicionarProduto, removerProduto } = useContext(AuthContext);
+  const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
   useEffect(() => {
@@ -56,14 +56,13 @@ function ListaItens() {
           wrapperClass="dna-wrapper mx-auto"
         />
       )}
-
     
    {/* Display dos Produtos */}
       <div className='max-w-[1640px] m-5 px-4 py-12'>
 
         
       <h1 className='text-orange-600 font-bold text-4xl text-center'>
-        Produtos e Serviços DuMorro
+        Meus Itens
       </h1>
 
       <div className='grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4'>
@@ -80,32 +79,35 @@ function ListaItens() {
             <div className='flex justify-between px-2 py-5 m-3'>
               <p className='font-bold'>{item.nome}</p>
             </div>
-            <div className='flex justify-between px-1 m-3 text-black'>
-              <p className='font-light'>{item.descricao}</p>
-            </div>
 
-            <div className='flex px-2 py-4 m-3 text-center'>
+            <div className='flex justify-between px-2 py-4 m-3'>
             <p>
-                <span className=' font-bold text-orange-500 p-3'>
+                <span className='font-bold text-orange-500 p-3'>
                   R$ {item.preco}
                 </span>
               </p>
-              
-            
             </div>
-            
-            <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5" onClick={() => adicionarProduto(item)}>+</button>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white w-max p-1 rounded m-5" onClick={() => removerProduto(item.id)}>-</button>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5"><Link to={'/carrinho'}>Ver Carrinho</Link></button>
-            
-            
-          </div>
+
+        <Link to={`/editarItem/${item.id}`} className="w-full">
+             <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded">
+                Editar
+              </button>
+        </Link>
+
+        <Link to={`/deletarItem/${item.id}`} className="w-full">
+            <button className="bg-black hover:bg-gray-800 text-white w-full py-2 mt-2 rounded">
+               Deletar
+            </button>
+        </Link>
+
+        </div>
           
         ))};
       </div>
       
       </div>
-
+      
+      
     </>
   );
 }

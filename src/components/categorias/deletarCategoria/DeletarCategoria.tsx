@@ -69,12 +69,12 @@ function DeletarCategoria() {
             <p className='text-center font-semibold mb-4'>Você tem certeza de que deseja apagar a categoria a seguir?</p>
 
             <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-                <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>Categoria</header>
-                <p className='p-8 text-3xl bg-slate-200 h-full'>{categoria.nome}</p>
-                <p className='p-8 text-3xl bg-slate-200 h-full'>{categoria.descricao}</p>
+                <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl bg-orange-500'>Categoria</header>
+                <p className='p-8 text-3xl bg-slate-200 h-full'><span className='text-bold'>Nome da Categoria: </span>{categoria.nome}</p>
+                <p className='p-8 text-3xl bg-slate-200 h-full'><span className='text-bold'>Descrição: </span>{categoria.descricao}</p>
                 <div className="flex">
-                    <button className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2' onClick={retornar}>Não</button>
-                    <button className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center' onClick={deletarCategoria}>
+                    <button className='bg-black hover:bg-gray-800 text-white w-full py-2 mt-2 rounded text-center' onClick={retornar}>Não</button>
+                    <button className='bg-orange-500 hover:bg-orange-600 text-white w-full py-2 mt-2 rounded text-center' onClick={deletarCategoria}>
                         Sim
                     </button>
                 </div>
