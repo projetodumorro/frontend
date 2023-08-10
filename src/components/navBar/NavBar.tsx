@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineMenu, AiOutlineSearch, AiOutlineClose, AiFillTag } from 'react-icons/ai';
 import { BsFillCartFill,BsFillSaveFill,  } from 'react-icons/bs';
@@ -11,35 +11,22 @@ import {UserCircleIcon} from '@heroicons/react/24/solid'
 import { AuthContext } from '../../contexts/AuthContext'
 
 
-
 const Navbar = () => {
 const [nav, setNav] = useState(false)
-
+const {usuario, handleLogout} = useContext(AuthContext);
 
 let navigate = useNavigate()
 
 const handleNav = () => {
   setNav(!nav);
 };
-
-interface SelectStateStylesType {
-  select: {
-    initial: object;
-    states: {
-      close: object;
-      open: object;
-      withValue: object;
-    };
-  };
-  label: {
-    initial: object;
-    states: {
-      close: object;
-      open: object;
-      withValue: object;
-    };
-  };
+function logout() {
+  handleLogout()
+  alert('Usuário deslogado com sucesso')
+  navigate('/login')
 }
+
+
 
   return (
     <div className='max-w-[1640px] mx-auto flex justify-between items-center p-4 bg-[#]'>
@@ -90,11 +77,12 @@ interface SelectStateStylesType {
       <li><Link to='/cadastroItem'>Cadastrar Produtos</Link></li>
       <li><Link to='/cadastroCategoria'>Cadastrar Categoria</Link></li>
       <li><Link to='/categorias'>Editar Categoria</Link></li>
+      
     </ul>
   </li>
-  
+  <Link to=''  onClick={logout} className='p-4 hover:underline text-xl py-4 flex'>Sair</Link>
       </ul>
-   
+      
         
         
     
