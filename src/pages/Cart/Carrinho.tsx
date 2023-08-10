@@ -47,7 +47,7 @@ function Carrinho() {
       <button className="bg-orange-500 hover:bg-orange-600 text-white w-max p-1 rounded m-5" onClick={() => removerProduto(item.id)}>Remover do Carrinho</button>
     </div>
     
-  ))};
+  ))}
 </div>
 <button className="bg-orange-500 hover:bg-orange-600 text-white w-80 py-2 rounded" onClick={limparCart}>Finalizar Compra</button>
 <button className="bg-orange-500 hover:bg-orange-600 text-white w-80 py-2 rounded m-5" >Quantidade de Produtos: <span className='text-bold'>{quantidadeItems}</span></button>
