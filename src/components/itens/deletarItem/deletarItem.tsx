@@ -44,7 +44,7 @@ function DeletarItem() {
     }, [id])
   
     function retornar() {
-      navigate("/itens")
+      navigate("/meusItens")
     }
   
     async function deletarItem() {
@@ -65,25 +65,48 @@ function DeletarItem() {
     }
  
   return (
-    <div className='container w-1/3 mx-auto'>
-      <h1 className='text-4xl text-center my-4'>Deletar item</h1>
+    <>
+    <div className='flex flex-col items-center max-w-[1640px] m-5 px-4 py-12'>
 
-      <p className='text-center font-semibold mb-4'>Você tem certeza de que deseja apagar o item a seguir?</p>
+        
+<h1 className='text-orange-600 font-bold text-4xl text-center'>
+  Deletar
+</h1>
 
-      <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-      <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>Item</header>
-      <div className="p-4">
-        <p className='text-xl h-full'>{item.nome}</p>
-        <p>{item.descricao}</p>
+<div className='grid grid-cols-1 max-w-[300px] lg:grid-cols-1 gap-1 pt-4 center'>
+  <p className='text-bold'>tem certeza que deseja deletar?</p>
+      <img
+        src={item.foto}
+        alt={item.nome}
+        className='w-full h-[200px] object-cover rounded-t-lg'
+      />
+      <div className='flex justify-between px-2 py-5 m-3'>
+        <p className='font-bold'>{item.nome}</p>
       </div>
-      <div className="flex">
-        <button className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2' onClick={retornar}>Não</button>
-        <button className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center' onClick={deletarItem}>
+
+      <div className='flex justify-between px-2 py-4 m-3'>
+      <p>
+          <span className='font-bold text-orange-500 p-3'>
+            R$ {item.preco}
+          </span>
+        </p>
+      </div>
+
+
+       <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded" onClick={deletarItem}>
           Sim
         </button>
-      </div>
-    </div>
-    </div>
+
+
+
+      <button className="bg-black hover:bg-gray-800 text-white w-full py-2 mt-2 rounded" onClick={retornar}>
+         Não
+      </button>
+  
+
+  </div>
+  </div>
+              </>
   )
 }
 

@@ -6,6 +6,7 @@ import { BsFillCartFill,BsFillSaveFill,  } from 'react-icons/bs';
 import {TbTruckDelivery} from 'react-icons/tb'
 import {FaUserFriends, FaWallet} from 'react-icons/fa'
 import {MdFavorite, MdHelp} from 'react-icons/md'
+import { Select, Option } from "@material-tailwind/react";
 import {UserCircleIcon} from '@heroicons/react/24/solid'
 import { AuthContext } from '../../contexts/AuthContext'
 
@@ -20,6 +21,25 @@ let navigate = useNavigate()
 const handleNav = () => {
   setNav(!nav);
 };
+
+interface SelectStateStylesType {
+  select: {
+    initial: object;
+    states: {
+      close: object;
+      open: object;
+      withValue: object;
+    };
+  };
+  label: {
+    initial: object;
+    states: {
+      close: object;
+      open: object;
+      withValue: object;
+    };
+  };
+}
 
   return (
     <div className='max-w-[1640px] mx-auto flex justify-between items-center p-4 bg-[#]'>
@@ -37,7 +57,7 @@ const handleNav = () => {
            </a>
       </div>
 
-      {/* Search Input */}
+      {/* Search Input 
       <div className='bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]'>
         <AiOutlineSearch size={25} />
         <input
@@ -45,21 +65,39 @@ const handleNav = () => {
           type='text'
           placeholder='Procurar Produtos'
         />
-      </div>
+      </div>*/}
       
       <ul className='hidden md:flex text-orange-500'>
         <Link to='/home' className='p-4 hover:underline text-xl py-4 flex'>Home</Link>
-        <Link to='/categoria' className='p-4 hover:underline text-xl py-4 flex'>Categoria</Link>
+        <Link to='/categoria' className='p-4 hover:underline text-xl py-4 flex'>Produtos & Serviços</Link>
         <Link to='/sobre' className='p-4 hover:underline text-xl py-4 flex'>Sobre</Link>
         <Link to="/login" className='p-4 text-xl py-4 flex'><FaUserFriends size={25}/></Link>
+        
         <li className='p-4'>
           {/* Cart button */}
-      <button className='text-black hidden md:flex center p-1'>
+      <button className='text-black hidden md:flex center p-1 text-orange-500'>
         <BsFillCartFill size={25} className='md:flex' />
       </button>
+      </li>
+        
 
-        </li>
+        <li className='relative group'>
+    <Link to='/categoria' className='py-4 hover:underline text-xl py-4 flex'>Categoria</Link>
+  
+    <ul className='absolute hidden group-hover:block bg-orange-100'>
+      <li className=''><Link to='/perfil'>Editar Perfil</Link></li>
+      <li><Link to='/meusItens'>Meus Itens</Link></li>
+      <li><Link to='/cadastroItem'>Cadastrar Produtos</Link></li>
+      <li><Link to='/cadastroCategoria'>Cadastrar Categoria</Link></li>
+      <li><Link to='/categorias'>Editar Categoria</Link></li>
+    </ul>
+  </li>
+  
       </ul>
+   
+        
+        
+    
       
       <div className='flex items-center'>
         <div onClick={handleNav} className='cursor-pointer block md:hidden'>
@@ -86,11 +124,13 @@ const handleNav = () => {
                 <li className='text-xl py-4 flex'><MdFavorite size={25} className='mr-4' /> Sobre</li>
                 <li className='text-xl py-4 flex'><FaWallet size={25} className='mr-4' />Categoria</li>
                 <li className='text-xl py-4 flex'><FaUserFriends size={25} className='mr-4' />Login</li>
+                
             </ul>
         </nav>
       </div>
 
     </div>
+  
   );
 };
  export default Navbar;
