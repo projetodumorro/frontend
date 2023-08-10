@@ -71,8 +71,23 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     function adicionarProduto(produto: Item) {
         // Essa sintaxe guarda as info anteriores do State e atualiza com os novos dados(objetos)
-        setItems(state => [...state, produto])
-    }
+        //setItems(state => [...state, produto])
+        const existingItem = items.find((item) => item.id === produto.id);
+
+  if (existingItem) {
+    // If the item already exists, increase its quantity
+    setItems((state) =>
+    state.map((item) =>
+        item.id === produto.id ? { ...item, quantidade: item.quantidade + 1 } : item
+    )
+); 
+  }   
+else {
+   
+setItems((state) => [...state, { ...produto, quantidade: 1 }]);
+  }
+}
+    
 
     function removerProduto(produtoId: number) {
         // Usamos a função filter, com ela fazemos um Filtro no Array usando uma condição

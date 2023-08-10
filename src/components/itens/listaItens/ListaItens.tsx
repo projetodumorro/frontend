@@ -78,7 +78,7 @@ function ListaItens() {
               </div>
               <button className='bg-orange-500 text-white p-1 rounded-full'>Comprar</button>
               <button onClick={() => adicionarProduto(item)}>Adicionar ao Carrinho</button>
-              <button onClick={() => removerProduto(item.id)}>Remover do Carrinho</button>
+              
             </div>
           ))};
         </div>
