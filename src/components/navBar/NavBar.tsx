@@ -58,21 +58,18 @@ function logout() {
         <Link to='/home' className='p-4 hover:underline text-xl py-4 flex'>Home</Link>
         <Link to='/categoria' className='p-4 hover:underline text-xl py-4 flex'>Produtos & Serviços</Link>
         <Link to='/sobre' className='p-4 hover:underline text-xl py-4 flex'>Sobre</Link>
-        <Link to="/login" className='p-4 text-xl py-4 flex'><FaUserFriends size={25}/></Link>
+        <Link to="/login" className='p-4 text-xl py-4 flex'>Login</Link>
+
         
-        <li className='p-4'>
-          {/* Cart button */}
-      <button className='text-black hidden md:flex center p-1 text-orange-500'>
-        <BsFillCartFill size={25} className='md:flex' />
-      </button>
-      </li>
+      
+
         
 
         <li className='relative group'>
-    <Link to='/categoria' className='py-4 hover:underline text-xl py-4 flex'>Categoria</Link>
+    <Link to='/categoria' className='py-4 hover:underline text-xl py-4 flex'>Vendedor</Link>
   
-    <ul className='absolute hidden group-hover:block bg-orange-100'>
-      <li className=''><Link to='/perfil'>Editar Perfil</Link></li>
+    <ul className='absolute hidden group-hover:block bg-orange-100 w-80'>
+      
       <li><Link to='/meusItens'>Meus Itens</Link></li>
       <li><Link to='/cadastroItem'>Cadastrar Produtos</Link></li>
       <li><Link to='/cadastroCategoria'>Cadastrar Categoria</Link></li>
@@ -81,6 +78,17 @@ function logout() {
     </ul>
   </li>
   <Link to=''  onClick={logout} className='p-4 hover:underline text-xl py-4 flex'>Sair</Link>
+
+  
+  <li className='p-4'>
+          {/* Cart button */}
+      <Link to= '/carrinho'>
+        <button className='text-black hidden md:flex center p-1 text-orange-500'>
+          <BsFillCartFill size={25} className='md:flex' />
+        </button>
+        
+      </Link>
+</li>
       </ul>
       
         

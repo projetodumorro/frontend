@@ -22,6 +22,7 @@ import MeusItens from './pages/Itens/MeusItens'
 import CardItem from './components/itens/cardItem/CardItem';
 import Itens from './pages/Itens/MeusItens';
 import ModalItem from './components/itens/modalItem/ModalItem';
+import Carrinho from './pages/Cart/Carrinho';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
           <Navbar />
           <div className='min-h-[80vh]'>
             <Routes>
-              <Route path="/" element={<Login />} />
+              <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/sobre" element={<Sobre />} />
@@ -49,7 +50,10 @@ function App() {
               <Route path="/editarItem/:id" element={<FormularioItem />} />
               <Route path="/deletarItem/:id" element={<DeletarItem />} />
               <Route path='/meusItens'element={<MeusItens />} />
-              
+              <Route path='/perfil' element={<Perfil />} />
+              <Route path='/carrinho' element={<Carrinho />} />
+
+
             </Routes>
           </div>
           <Footer />

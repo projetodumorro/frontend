@@ -14,7 +14,7 @@ function ListaItens() {
 
   let navigate = useNavigate();
 
-  const { usuario, handleLogout } = useContext(AuthContext);
+  const { usuario, handleLogout, adicionarProduto, removerProduto } = useContext(AuthContext);
   const token = usuario.token;
 
   useEffect(() => {
@@ -56,6 +56,7 @@ function ListaItens() {
           wrapperClass="dna-wrapper mx-auto"
         />
       )}
+
     
    {/* Display dos Produtos */}
       <div className='max-w-[1640px] m-5 px-4 py-12'>
@@ -92,9 +93,10 @@ function ListaItens() {
               
             
             </div>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded">
-                Comprar
-            </button>
+            
+            <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5" onClick={() => adicionarProduto(item)}>Adicionar ao Carrinho</button>
+            <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5"><Link to={'/carrinho'}>Ver Carrinho</Link></button>
+            
             
           </div>
           
@@ -102,8 +104,7 @@ function ListaItens() {
       </div>
       
       </div>
-      
-      
+
     </>
   );
 }
