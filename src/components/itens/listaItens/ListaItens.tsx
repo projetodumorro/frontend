@@ -94,7 +94,8 @@ function ListaItens() {
             
             </div>
             
-            <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5" onClick={() => adicionarProduto(item)}>Adicionar ao Carrinho</button>
+            <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5" onClick={() => adicionarProduto(item)}>+</button>
+            <button className="bg-orange-500 hover:bg-orange-600 text-white w-max p-1 rounded m-5" onClick={() => removerProduto(item.id)}>-</button>
             <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5"><Link to={'/carrinho'}>Ver Carrinho</Link></button>
             
             
