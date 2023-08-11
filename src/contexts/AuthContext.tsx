@@ -22,7 +22,6 @@ interface AuthProviderProps {
 }
 
 export const AuthContext = createContext({} as AuthContextProps)
-
 export function AuthProvider({ children }: AuthProviderProps) {
 
     const [usuario, setUsuario] = useState<UsuarioLogin>({
@@ -88,7 +87,6 @@ setItems((state) => [...state, { ...produto, quantidade: 1 }]);
   }
 }
     
-
     function removerProduto(produtoId: number) {
         // Usamos a função filter, com ela fazemos um Filtro no Array usando uma condição
         const coffeeExistsInCart = items.filter(

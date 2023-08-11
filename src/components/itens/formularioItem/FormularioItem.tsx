@@ -1,10 +1,9 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Item from '../../../models/Item';
 import Categoria from '../../../models/Categoria';
 import { buscar, atualizar, cadastrar } from '../../../services/Service';
-
 
 function FormularioItem() {
   let navigate = useNavigate();
@@ -13,7 +12,6 @@ function FormularioItem() {
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
-
   const [categorias, setCategorias] = useState<Categoria[]>([]);
 
   const [categoria, setCategoria] = useState<Categoria>({
@@ -188,8 +186,7 @@ function FormularioItem() {
             placeholder="preco"
             name="preco"
             required
-            className="border-2 border-orange-500 rounded p-2"
-            
+            className="border-2 border-orange-500 rounded p-2"  
           />
         </div>
         <div className="flex flex-col gap-2 text-orange-500">

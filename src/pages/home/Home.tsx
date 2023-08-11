@@ -1,7 +1,4 @@
-//import homeLogo from '../../assets/home.png'
 import './Home.css';
-import ListaItens from '../../components/itens/listaItens/ListaItens';
-import ModalItem from '../../components/itens/modalItem/ModalItem';
 import ListaItensHome from '../../components/itens/listaItens/ListaItensHome';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -11,13 +8,11 @@ import Carrossel from '../../components/carrossel/Carrossel';
 function Home() {
 
   const { usuario } = useContext(AuthContext);
-
   let listaItensComponent;
 
   let listaItensHome2 = (
     < ListaItensHome2 />
   );
-
   let listaItensHome = (
     < ListaItensHome />
   );
@@ -44,7 +39,6 @@ function Home() {
           <Carrossel />
         </div>
       </div>
-
 
       <div className='max-w-[1640px] mx-auto p-4 py-12 grid md:grid-cols-3 gap-6'>
         {/* Card */}
@@ -87,9 +81,7 @@ function Home() {
           />
         </div>
       </div>
-
       {listaItensComponent}
-
     </>
   );
 }

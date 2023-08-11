@@ -3,11 +3,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';  // Importe os estilos do autoplay
-
-
 import './Carrossel.css';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-
 import Carrosel1 from '../../assets/Carrosel1.jpg';
 import Carrosel2 from '../../assets/Carrosel2.jpg';
 import Carrosel3 from '../../assets/Carrosel3.jpg';

@@ -1,17 +1,15 @@
-import React, {useContext,useState,useEffect} from 'react'
+import {useContext,useState,useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../../contexts/AuthContext'
 import Item from '../../../models/Item'
 import { buscar, deletar } from '../../../services/Service'
 
-
 function DeletarItem() {
-    const [item, setItem] = useState<Item>({} as Item)
-
+    
     let navigate = useNavigate()
-  
+    
+    const [item, setItem] = useState<Item>({} as Item)
     const { id } = useParams<{ id: string }>()
-  
     const { usuario, handleLogout } = useContext(AuthContext)
     const token = usuario.token
   
@@ -68,7 +66,6 @@ function DeletarItem() {
     <>
     <div className='flex flex-col items-center max-w-[1640px] m-5 px-4 py-12'>
 
-        
 <h1 className='text-orange-600 font-bold text-4xl text-center'>
   Deletar
 </h1>
@@ -92,18 +89,12 @@ function DeletarItem() {
         </p>
       </div>
 
-
        <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded" onClick={deletarItem}>
           Sim
         </button>
-
-
-
       <button className="bg-black hover:bg-gray-800 text-white w-full py-2 mt-2 rounded" onClick={retornar}>
          Não
       </button>
-  
-
   </div>
   </div>
               </>

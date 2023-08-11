@@ -1,4 +1,3 @@
-import React from 'react';
 import {
     List,
     ListItem,
@@ -70,8 +69,6 @@ function Sobre() {
     </Card>
 
     </div>
-
-    
     </>
     );
     
