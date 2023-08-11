@@ -1,0 +1,56 @@
+import { Link, useNavigate } from 'react-router-dom'
+import React, {useState} from 'react'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+
+
+function Navbar() {
+ 
+  let navigate = useNavigate()
+
+  const [nav, setNav] = useState(false);
+
+  const handleNav = () => {
+    setNav(!nav);
+  };
+
+
+  return (
+    <>
+    <div className='flex justify-between items-center font-sans  max-w-full  px-4 text-[#fff] bg-[#c65d00]'>
+      <h1 className='text-2x1 sm:text-3x1 lg:text-4x1 px-2'>Du<span className='font-bold'>Morro</span></h1>
+      <ul className='hidden md:flex '>
+        <li className='p-4 cursor-pointer'><Link to='/home' className='hover:underline'>Home</Link></li>
+        <li className='p-4'><Link to='' className='hover:underline'>Produtos</Link></li>
+        <li className='p-4'><Link to='' className='hover:underline'>Serviços</Link></li>
+        <li className='p-4'><Link to='' className='hover:underline'>Sobre</Link></li>
+        <li className='p-4'><Link to='/login' className='hover:underline'><svg className="h-8 w-8 text-white"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            </Link>
+        </li>
+      </ul>
+
+      <div onClick={handleNav} className='block md:hidden'>
+          {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={30} />}
+      </div>
+      <ul className={nav ? 'fixed left-0 top-0 w-[60%] h-full   bg-[#c65d00]/[.90] ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
+        <h1 className='w-full text-2xl font-bold text-[#fff] m-4'>DuMorro</h1>
+          <li className='p-4 border-b border-gray-600'><Link to='/home' className='hover:underline'>Home</Link></li>
+          <li className='p-4 border-b border-gray-600'><Link to='' className='hover:underline'>Produtos</Link></li>
+          <li className='p-4 border-b border-gray-600'><Link to='' className='hover:underline'>Serviços</Link></li>
+          <li className='p-4 border-b border-gray-600'><Link to='' className='hover:underline'>Sobre</Link></li>
+          <li className='p-4'><Link to='/login' className='hover:underline'><svg className="h-8 w-8 text-white"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            </Link></li>
+      </ul>
+    </div>
+  </>
+
+
+
+
+  )
+}
+
+export default Navbar
