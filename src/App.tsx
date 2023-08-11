@@ -21,7 +21,6 @@ import Carrinho from './pages/Cart/Carrinho';
 function App() {
   return (
     <>
-    
     <AuthProvider>
         <BrowserRouter>
           <Navbar />
@@ -34,7 +33,6 @@ function App() {
               <Route path='/perfil' element={<Perfil />} />
               <Route path="/home" element={<Home />} />
               <Route path="/categoria" element={<Categoria />} />
-
               <Route path="/categorias" element={<ListaCategorias />} />
               <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
               <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
@@ -46,8 +44,6 @@ function App() {
               <Route path='/meusItens'element={<MeusItens />} />
               <Route path='/perfil' element={<Perfil />} />
               <Route path='/carrinho' element={<Carrinho />} />
-
-
             </Routes>
           </div>
           <Footer />

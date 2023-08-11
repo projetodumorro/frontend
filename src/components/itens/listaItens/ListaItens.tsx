@@ -1,26 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Item from '../../../models/Item';
 import { buscar } from '../../../services/Service';
-import { Rating } from "@material-tailwind/react";
-import { Link } from 'react-router-dom';
 import Star from './../../../assets/star.svg'
 import Star2 from './../../../assets/star-no-fill.svg'
 import Star3 from './../../../assets/star-half-fill.svg'
 
-
-
-
 function ListaItens() {
   const [itens, setItens] = useState<Item[]>([]);
   
- 
-
   let navigate = useNavigate();
 
-  const { usuario, handleLogout, adicionarProduto, removerProduto } = useContext(AuthContext);
+  const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
   useEffect(() => {
@@ -49,7 +42,6 @@ function ListaItens() {
     buscarPostagens();
   }, [itens.length]);
 
-  
   return (
     <>
       {itens.length === 0 && (
@@ -73,14 +65,12 @@ function ListaItens() {
                 alt="card-image"
                 className="w-[full] object-cover"
             />
-     
             <div className='p-5 flex flex-col gap-3'>
 
                 <div className='flex items-center gap-2'>
                   <span className='px-3 py-1 rounded-full text-xs bg-gray-100'>stoque ready</span>
                   <span>{item.nome}</span>
                 </div>
-
                 <h2 className='text-bold text-2xl overflow-ellipsis overflow-hidden whitespace-nowrap'>{item.nome}</h2>
                  <div>
                       <span className='text-xl font-bold'>
@@ -96,10 +86,7 @@ function ListaItens() {
                           20%
                         </span>
                       </div>
-
                   </div> 
-
-                  
                     <div className='flex flex-col w-1/12 gap-4'>
                       
                     <span className='flex items-center mt-1'>
@@ -112,30 +99,18 @@ function ListaItens() {
                         20k reviews
                       </span>
                     </span>
-
                     </div>
-                    
                     <div className='flex mt-5 gap-2'>
                       <button className='bg-orange-500/80 hover:bg-yellow-500/90 px-6 py-2 rounded-md text-white font-medium tracking-wider transition
                        '>
                         Adicionar ao Carrinho
                       </button>
                     </div>
-
-                   
-
             </div>
-        
       </div>
-      
-    
-    
     ))}
       </div>
     </>
     );
   }   
-
-  
-  
 export default ListaItens;

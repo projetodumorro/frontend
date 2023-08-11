@@ -1,10 +1,8 @@
-import React, { useContext, useState } from "react";
+import { useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import { BsFillCartFill, BsFillSaveFill } from "react-icons/bs";
+import { BsFillCartFill} from "react-icons/bs";
 import { Select, Option } from "@material-tailwind/react";
-
-
 
 function Navbar() {
   let navigate = useNavigate();
@@ -185,7 +183,6 @@ function Navbar() {
        
         </ul>
       </div>
-      
     </>
   )
 }

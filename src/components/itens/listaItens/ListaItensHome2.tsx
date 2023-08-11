@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -6,24 +6,12 @@ import Item from '../../../models/Item';
 import { buscar } from '../../../services/Service';
 import { Link } from 'react-router-dom';
 
-
 function ListaItensHome2() {
   const [itens, setItens] = useState<Item[]>([]);
 
-
-
-  let navigate = useNavigate();
-
-  const { usuario, handleLogout, adicionarProduto, removerProduto } = useContext(AuthContext);
+  const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
-  /*
-  useEffect(() => {
-    if (token === '') {
-      alert('Você precisa estar logado');
-      navigate('/');
-    }
-  }, [token]);
-  */
+  
   async function buscarPostagens() {
     try {
       await buscar('/itens', setItens, {
@@ -90,20 +78,12 @@ function ListaItensHome2() {
                     R$ {item.preco}
                   </span>
                 </p>
-
-
               </div>
-
               <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5"><Link to={'/login'}>Adquirir item</Link></button>
-
-
             </div>
-
           ))};
         </div>
-
       </div>
-
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -6,11 +6,8 @@ import Item from '../../../models/Item';
 import { buscar } from '../../../services/Service';
 import { Link } from 'react-router-dom';
 
-
 function ListaItensHome() {
   const [itens, setItens] = useState<Item[]>([]);
-
-
 
   let navigate = useNavigate();
 
@@ -43,7 +40,6 @@ function ListaItensHome() {
     buscarPostagens();
   }, [itens.length]);
 
-
   return (
     <>
       {itens.length === 0 && (
@@ -57,10 +53,8 @@ function ListaItensHome() {
         />
       )}
 
-
       {/* Display dos Produtos */}
       <div className='max-w-[1640px] m-5 px-4 py-12'>
-
 
         <h1 className='text-orange-600 font-bold text-4xl text-center'>
           Produtos e Serviços DuMorro
@@ -83,27 +77,18 @@ function ListaItensHome() {
               <div className='flex justify-between px-1 m-3 text-black'>
                 <p className='font-light'>{item.descricao}</p>
               </div>
-
               <div className='flex px-2 py-4 m-3 text-center'>
                 <p>
                   <span className=' font-bold text-orange-500 p-3'>
                     R$ {item.preco}
                   </span>
                 </p>
-
-
               </div>
-
               <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5"><Link to={'/itens'}>Adquirir item</Link></button>
-
-
             </div>
-
           ))};
         </div>
-
       </div>
-
     </>
   );
 }

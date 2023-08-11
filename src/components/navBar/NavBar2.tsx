@@ -1,22 +1,18 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   AiOutlineMenu,
-  AiOutlineSearch,
   AiOutlineClose,
-  AiFillTag,
 } from "react-icons/ai";
-import { BsFillCartFill, BsFillSaveFill } from "react-icons/bs";
+import { BsFillCartFill} from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaUserClock, FaUserFriends, FaWallet } from "react-icons/fa";
-import { MdFavorite, MdHelp } from "react-icons/md";
-import { Select, Option } from "@material-tailwind/react";
-import { UserCircleIcon } from "@heroicons/react/24/solid";
+import { MdFavorite} from "react-icons/md";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const { usuario, handleLogout } = useContext(AuthContext);
+  const { handleLogout } = useContext(AuthContext);
 
   let navigate = useNavigate();
 
@@ -28,7 +24,6 @@ const Navbar = () => {
     alert("Usuário deslogado com sucesso");
     navigate("/login");
   }
-
   return (
     <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4 bg-[#]">
       {/* Left side */}
@@ -43,17 +38,6 @@ const Navbar = () => {
           </div>
         </a>
       </div>
-
-      {/* Search Input 
-      <div className='bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]'>
-        <AiOutlineSearch size={25} />
-        <input
-          className='bg-transparent p-2 w-full focus:outline-none'
-          type='text'
-          placeholder='Procurar Produtos'
-        />
-      </div>*/}
-
       <ul className="hidden md:flex text-orange-500">
         <Link to="/home" className="p-4 hover:underline text-xl py-4 flex">
           Home
@@ -67,7 +51,6 @@ const Navbar = () => {
         <Link to="/login" className="p-4 text-xl py-4 flex">
           Login
         </Link>
-
         <li className="relative group">
           <Link
             to="/categoria"
@@ -75,7 +58,6 @@ const Navbar = () => {
           >
             Vendedor
           </Link>
-
           <ul className="absolute hidden group-hover:block bg-orange-100 w-80">
             <li>
               <Link to="/meusItens">Meus Itens</Link>
@@ -98,7 +80,6 @@ const Navbar = () => {
         >
           Sair
         </Link>
-
         <li className="p-4">
           {/* Cart button */}
           <Link to="/carrinho">
@@ -108,22 +89,16 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-
       <div className="flex items-center">
         <div onClick={handleNav} className="cursor-pointer block md:hidden">
           {nav ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {/* Overlay */}
       {nav ? (
         <div className="bg-black/80 fixed w-full h-screen z-10 top-0 left-0"></div>
       ) : (
         ""
       )}
-
-      {/* Side drawer menu */}
       <div
         className={
           nav
