@@ -43,7 +43,7 @@ function ListaItens() {
     buscarPostagens();
   }, [itens.length]);
 
-  
+  const itensDoUsuario = itens.filter(item => item.usuario?.id === usuario.id);
   return (
     <>
       {itens.length === 0 && (
@@ -58,17 +58,14 @@ function ListaItens() {
       )}
     
    {/* Display dos Produtos */}
-      <div className='max-w-[1640px] m-5 px-4 py-12'>
-
-        
+      <div className='max-w-[1640px] m-5 px-4 py-12'> 
       <h1 className='text-orange-600 font-bold text-4xl text-center'>
         Meus Itens
       </h1>
-
       <div className='grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4'>
-        {itens.map((item, itens) => (
+      {itensDoUsuario.map(item => (
           <div
-            key={itens}
+             key={item.id}
             className='border shadow-lg rounded-lg hover:scale-105 duration-300'
           >
             <img
