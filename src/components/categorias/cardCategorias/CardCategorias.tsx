@@ -1,26 +1,46 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Categoria from '../../../models/Categoria'
 
 interface CardCategoriaProps {
     categoria: Categoria
 }
+/*function TrashIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-5 w-5"
+    >
+      <path
+        fillRule="evenodd"
+        d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}*/
 
 function CardCategorias({categoria}: CardCategoriaProps) {
     return (
+      <>
+      
+      
       <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-        <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>Categoria</header>
-        <p className='p-8 text-3xl bg-slate-200 h-full'>{categoria.nome}</p>
-        <p className='p-8 text-3xl bg-slate-200 h-full'>{categoria.descricao}</p>
+        <header className='py-2 px-6 bg-orange-500 text-white font-bold text-2xl'>Categoria</header>
+        <p className='p-8 text-1xl bg-slate-200 h-full'><span className='text-bold'>Nome da Categoria: </span>{categoria.nome}</p>
+        <p className='p-8 text-1xl bg-slate-200 h-full'><span className='text-bold'>Descrição: </span>{categoria.descricao}</p>
         <div className="flex">
-          <Link to={`/editarCategoria/${categoria.id}`} className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
+          <Link to={`/editarCategoria/${categoria.id}`} className='bg-orange-500 hover:bg-orange-600 text-white w-full py-2 mt-2 rounded text-center'>
             <button>Editar</button>
           </Link>
-          <Link to={`/deletarCategoria/${categoria.id}`} className='text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
+          <Link to={`/deletarCategoria/${categoria.id}`} className='bg-black hover:bg-gray-800 text-white w-full py-2 mt-2 rounded text-center'>
             <button>Deletar</button>
           </Link>
         </div>
       </div>
+
+  </>
     )
   }
   
