@@ -54,7 +54,7 @@ const Navbar = () => {
         <li className="relative group">
           <Link
             to="/categoria"
-            className="py-4 hover:underline text-xl py-4 flex"
+            className="py-4 hover:underline text-xl flex"
           >
             Vendedor
           </Link>
@@ -83,7 +83,7 @@ const Navbar = () => {
         <li className="p-4">
           {/* Cart button */}
           <Link to="/carrinho">
-            <button className="text-black hidden md:flex center p-1 text-orange-500">
+            <button className="hidden md:flex center p-1 text-orange-500">
               <BsFillCartFill size={25} className="md:flex" />
             </button>
           </Link>
