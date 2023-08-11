@@ -30,7 +30,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4 bg-[#]">
+    <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
       {/* Left side */}
       <div className="flex items-center">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
@@ -142,22 +142,36 @@ const Navbar = () => {
         <nav>
           <ul className="flex flex-col p-4 text-gray-800">
             <li className="text py-4 flex">
-             <Link to={'/home'} ><TbTruckDelivery size={15} className="mr-4" /> Home</Link> 
+              <Link to={"/home"}>
+                <TbTruckDelivery size={15} className="mr-4" /> Home
+              </Link>
             </li>
             <li className="text py-4 flex">
-            <Link to={'/sobre'} > <MdFavorite size={15} className="mr-4" /> Sobre </Link>
+              <Link to={"/sobre"}>
+                {" "}
+                <MdFavorite size={15} className="mr-4" /> Sobre{" "}
+              </Link>
             </li>
             <li className="text py-4 flex">
-            <Link to={'/categoria'} > <FaWallet size={15} className="mr-4" />
-              Produtos e Serviços </Link>
+              <Link to={"/categoria"}>
+                {" "}
+                <FaWallet size={15} className="mr-4" />
+                Produtos e Serviços{" "}
+              </Link>
             </li>
             <li className="text py-4 flex">
-            <Link to={'/login'} > <FaUserFriends size={15} className="mr-4" />
-              Login </Link>
+              <Link to={"/login"}>
+                {" "}
+                <FaUserFriends size={15} className="mr-4" />
+                Login{" "}
+              </Link>
             </li>
             <li className="text py-4 flex">
-            <Link to={''} onClick={logout} > <FaUserClock size={15} className="mr-4" />
-              Sair </Link>
+              <Link to={""} onClick={logout}>
+                {" "}
+                <FaUserClock size={15} className="mr-4" />
+                Sair{" "}
+              </Link>
             </li>
           </ul>
         </nav>

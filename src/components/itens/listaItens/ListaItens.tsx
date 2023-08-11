@@ -63,15 +63,15 @@ function ListaItens() {
         />
       )}
 
-<div className='grid grid-cols-2 lg:grid-cols-4 gap-1 pt-7 m-5'>
+<div className=' container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-1 pt-7 '>
     {itens.map((item, index) => (
   
-      <div className="w-[300px] h-[500px] bg-slate-50 text-gray-700 shadow-lg rounded-md overflow-hidden" key={index}>
+      <div className="w-[300px] h-[550px] bg-slate-50 text-gray-700 shadow-lg rounded-md overflow-hidden py-5" key={index}>
       
             <img
                 src={item.foto}
                 alt="card-image"
-                className="w-[full] object-cover"
+                className="w-[full] h-[full] object-cover "
             />
      
             <div className='p-5 flex flex-col gap-3'>
@@ -117,7 +117,7 @@ function ListaItens() {
                     
                     <div className='flex mt-5 gap-2'>
                       <button className='bg-orange-500/80 hover:bg-yellow-500/90 px-6 py-2 rounded-md text-white font-medium tracking-wider transition
-                       '>
+                       ' onClick={() => adicionarProduto(item)} >
                         Adicionar ao Carrinho
                       </button>
                     </div>

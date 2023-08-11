@@ -43,7 +43,8 @@ function Carrossel() {
                     delay: 2000,  // Tempo de espera entre os slides (em milissegundos)
                     disableOnInteraction: false,  // Manter o autoplay após interações do usuário
                 }}
-                className="mySwiper"
+                className="mySwiper" 
+                
             >
             {items.map((item, index) => (
                     <SwiperSlide key={index}>
@@ -53,6 +54,7 @@ function Carrossel() {
                 ))}
                 
             </Swiper>
+           
             
         </>
     );
