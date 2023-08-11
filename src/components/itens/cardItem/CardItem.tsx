@@ -14,7 +14,7 @@ function CardItem({post}: CardItemProps) {
       <div>
       <div className="gallery">
         <a target="_blank" href="">
-          <img src={post.foto} alt="" width="" height=""/>
+          <img src={post.foto} alt="" width="20px" height="20px"/>
         </a>
         <div className="desc">{post.nome}</div>
         <div className="desc">{post.descricao}</div>
