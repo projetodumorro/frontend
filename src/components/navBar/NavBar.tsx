@@ -72,7 +72,7 @@ function Navbar() {
       <li className="relative group">
         <Link
           to="/categoria"
-          className="py-4 hover:underline text-xl py-4 flex"
+          className="py-4 hover:underline text-xl flex"
         >
           Administrador
         </Link>
@@ -123,7 +123,7 @@ function Navbar() {
       <li className="relative group">
         <Link
           to="/categoria"
-          className="py-4 hover:underline text-xl py-4 flex"
+          className="py-4 hover:underline text-xl flex"
         >
           Vendedor
         </Link>
