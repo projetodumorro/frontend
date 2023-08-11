@@ -1,7 +1,4 @@
-import React from 'react';
 import './App.css';
-
-
 import Footer from './components/footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './pages/login/Login';
@@ -19,9 +16,6 @@ import DeletarItem from './components/itens/deletarItem/deletarItem';
 import Perfil from './pages/perfil/Perfil';
 import Navbar from './components/navBar/NavBar';
 import MeusItens from './pages/Itens/MeusItens'
-import CardItem from './components/itens/cardItem/CardItem';
-import Itens from './pages/Itens/MeusItens';
-import ModalItem from './components/itens/modalItem/ModalItem';
 import Carrinho from './pages/Cart/Carrinho';
 
 function App() {
