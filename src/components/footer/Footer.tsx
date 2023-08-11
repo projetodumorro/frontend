@@ -44,7 +44,7 @@ const Footer = () => {
             <li className='py-2 text-sm'>Cinthia de Paula</li>
             <li className='py-2 text-sm'>Fabiana</li>
             <li className='py-2 text-sm'>Felipe Vitorino</li>
-            <li className='py-2 text-sm'>Isabel Miguel</li>
+            <li className='py-2 text-sm'>Isabella Miguel</li>
             <li className='py-2 text-sm'>Jenny</li>
             <li className='py-2 text-sm'>Mikael</li>
         </ul>
