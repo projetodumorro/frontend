@@ -6,6 +6,15 @@ import Item from '../../../models/Item';
 import { buscar } from '../../../services/Service';
 import { Link } from 'react-router-dom';
 
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
+
 
 function ListaItens() {
   const [itens, setItens] = useState<Item[]>([]);
@@ -57,57 +66,53 @@ function ListaItens() {
         />
       )}
 
+{itens.map((item, index) => (
+  
+      <Card className="w-60" key={index}>
+      <CardHeader shadow={false} floated={false} className="h-96">
+        <img
+          src={item.foto}
+          alt="card-image"
+          className="h-[240px] w-full object-cover"
+        />
+      </CardHeader>
+      <CardBody>
+        <div className="mb-2 flex items-center justify-between">
+          <Typography color="blue-gray" className="font-medium">
+            {item.nome}
+          </Typography>
+          <Typography color="blue-gray" className="font-medium">
+            {item.preco}
+          </Typography>
+        </div>
+        <Typography
+          variant="small"
+          color="gray"
+          className="font-normal opacity-75"
+        >
+          {item.descricao}
+        </Typography>
+      </CardBody>
+      <CardFooter className="pt-0">
+        <Button
+          ripple={false}
+          fullWidth={true}
+          className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+        >
+          Adicionar ao Carrinho
+        </Button>
+      </CardFooter>
+    </Card>
     
-   {/* Display dos Produtos */}
-      <div className='max-w-[1640px] m-5 px-4 py-12'>
+})
 
-        
-      <h1 className='text-orange-600 font-bold text-4xl text-center'>
-        Produtos e Serviços DuMorro
-      </h1>
 
-      <div className='grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4'>
-        {itens.map((item, itens) => (
-          <div
-            key={itens}
-            className='border shadow-lg rounded-lg hover:scale-105 duration-300'
-          >
-            <img
-              src={item.foto}
-              alt={item.nome}
-              className='w-full h-[200px] object-cover rounded-t-lg'
-            />
-            <div className='flex justify-between px-2 py-5 m-3'>
-              <p className='font-bold'>{item.nome}</p>
-            </div>
-            <div className='flex justify-between px-1 m-3 text-black'>
-              <p className='font-light'>{item.descricao}</p>
-            </div>
-
-            <div className='flex px-2 py-4 m-3 text-center'>
-            <p>
-                <span className=' font-bold text-orange-500 p-3'>
-                  R$ {item.preco}
-                </span>
-              </p>
-              
-            
-            </div>
-            
-            <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5" onClick={() => adicionarProduto(item)}>+</button>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white w-max p-1 rounded m-5" onClick={() => removerProduto(item.id)}>-</button>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded m-5"><Link to={'/carrinho'}>Ver Carrinho</Link></button>
-            
-            
-          </div>
-          
-        ))};
-      </div>
+</>)
+    
+    
       
-      </div>
 
-    </>
-  );
-}
+  
+
 
 export default ListaItens;

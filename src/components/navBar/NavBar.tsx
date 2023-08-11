@@ -51,10 +51,10 @@ function Navbar() {
         Sair
       </Link>
       {/* Cart button */}
-      <Link to="/carrinho">
-        <button className="text-black hidden md:flex center p-1 text-orange-500">
-          <BsFillCartFill size={25} className="md:flex" />
-        </button>
+      <Link to="/carrinho" className="p-2">
+      <button className='bg-black text-white hidden md:flex items-center p-4 py-2 rounded-full'>
+        <BsFillCartFill size={20} className='mr-2' />Carrinho
+      </button>
       </Link>
     </>
 
@@ -102,10 +102,11 @@ function Navbar() {
         Sair
       </Link>
       {/* Cart button */}
-      <Link to="/carrinho">
-        <button className="text-black hidden md:flex center p-1 text-orange-500">
-          <BsFillCartFill size={25} className="md:flex" />
-        </button>
+      
+      <Link to="/carrinho" className="p-2">
+      <button className='bg-black text-white hidden md:flex items-center p-4 py-2 rounded-full'>
+        <BsFillCartFill size={20} className='mr-2' />Carrinho
+      </button>
       </Link>
     </>
   );
