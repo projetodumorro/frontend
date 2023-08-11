@@ -65,8 +65,30 @@ function Sobre() {
               UI/UX Designer @ Material Tailwind
             </Typography>
           </div>
-          
-
+          <div>
+            <Typography variant="h6" color="blue-gray">
+              Felipe Vitorino
+            </Typography>
+            <Typography variant="small" color="gray" className="font-normal">
+              UI/UX Designer @ Material Tailwind
+            </Typography>
+          </div>
+          <div>
+            <Typography variant="h6" color="blue-gray">
+              Felipe Vitorino
+            </Typography>
+            <Typography variant="small" color="gray" className="font-normal">
+              UI/UX Designer @ Material Tailwind
+            </Typography>
+          </div>
+          <div>
+            <Typography variant="h6" color="blue-gray">
+              Felipe Vitorino
+            </Typography>
+            <Typography variant="small" color="gray" className="font-normal">
+              UI/UX Designer @ Material Tailwind
+            </Typography>
+          </div>
       </List>
     </Card>
 
