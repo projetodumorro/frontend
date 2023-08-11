@@ -1,7 +1,6 @@
 //import homeLogo from '../../assets/home.png'
 import './Home.css';
 import ListaItens from '../../components/itens/listaItens/ListaItens';
-import ModalItem from '../../components/itens/modalItem/ModalItem';
 
 function Home() {
     return (

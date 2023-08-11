@@ -57,6 +57,8 @@ const Sobre = () => {
     <>
     <div class="fixed inset-0 bg-cover bg-center opacity-20 z-0" id="background">
       <img src={foto} alt="" />
+      <img src={foto} alt="" />
+      <img src={foto} alt="" />
     </div>
 
     <div>
