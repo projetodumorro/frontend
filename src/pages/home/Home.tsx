@@ -3,7 +3,7 @@ import ListaItensHome from '../../components/itens/listaItens/ListaItensHome';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import ListaItensHome2 from '../../components/itens/listaItens/ListaItensHome2';
-import Carrossel from '../../components/carrossel/Carrossel';
+// import Carrossel from '../../components/carrossel/Carrossel';
 
 function Home() {
 
@@ -36,7 +36,7 @@ function Home() {
             <h1 className='px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold'>Transformando<span className='text-orange-500'>vidas</span></h1>
             <h1 className='px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold'><span className='text-orange-500'>Impulsionando</span> negócios.</h1>
           </div>
-          <Carrossel />
+          {/* <Carrossel /> */}
         </div>
       </div>
 
