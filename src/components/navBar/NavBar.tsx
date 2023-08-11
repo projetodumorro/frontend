@@ -22,7 +22,7 @@ const handleNav = () => {
 };
 
   return (
-    <div className='max-w-[1640px] mx-auto flex justify-between items-center p-4 bg-[#]'>
+    <div className='inset-x-0max-w-[1640px] bg-white mx-auto flex justify-between items-center p-4'>
       {/* Left side */}
       <div className='flex items-center'>
       <h1 className='text-2xl sm:text-3xl lg:text-4xl px-2'>

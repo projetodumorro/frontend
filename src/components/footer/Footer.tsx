@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   FaDribbbleSquare,
   FaFacebookSquare,
@@ -9,9 +8,9 @@ import {
 
 const Footer = () => {
   return (
-    <div className='max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-orange-500'>
+    <div className='inset-x-0max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-orange-500 relative z-10 p-4 bg-white'>
       <div>
-        <h1 className='w-full text-3xl font-bold text-[#000] text-orange-500'>DuMorro</h1>
+        <h1 className='w-full text-3xl font-bold  text-orange-500'>DuMorro</h1>
         <p className='py-4 text-black'>Transformando vidas, Impulsionando negócios.</p>
         <div className='flex justify-between md:w-[75%] my-6'>
             <FaFacebookSquare size={30} />
