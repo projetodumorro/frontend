@@ -16,9 +16,11 @@ const Footer = () => {
   const FelipeGit = 'https://github.com/FelipeVitorinu';
   const MikaGit = 'https://github.com/frizzly-mika';
   return (
-    <div className='max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-orange-500'>
+    <div className='relative bottom-0 bg-white w-full py-16 px-4 grid lg:grid-cols-3 gap-8 text-orange-500'>
       <div>
-        <h1 className='w-full text-3xl font-bold text-[#000] text-orange-500'>DuMorro </h1>
+        <a href="/home">
+        <h1 className='w-full text-3xl font-bold text-[#000]'>DuMorro </h1>
+        </a>
         <p className='py-6 text-black text-sm'>Transformando vidas, Impulsionando negócios.</p>
         <a href={githubDuMorro} target="_blank" rel="noopener noreferrer">
         <FaGithubSquare size={80}/>

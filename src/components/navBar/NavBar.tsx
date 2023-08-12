@@ -28,11 +28,19 @@ function Navbar() {
     navigate("/login");
   }
 
+  const closeMenu = () => {
+    setNav(false);
+  };
+
+  const handleOptionClick = () => {
+    closeMenu(); // Feche o menu após a opção ser clicada
+  };
+
   let navbarComponent;
 
   let navBarVisitante = (
     <>
-      <Link to="/home" className="p-4 hover:underline text-xl py-4 flex">
+      <Link to="/home" className="bg-cover p-4 hover:underline text-xl py-4 flex">
         Home
       </Link>
       <Link to="/sobre" className="p-4 hover:underline text-xl py-4 flex">
@@ -86,7 +94,7 @@ function Navbar() {
       <li className="relative group">
         <Link
           to="/categoria"
-          className="py-4 hover:underline text-xl py-4 flex"
+          className="py-4 hover:underline text-xl flex"
         >
           Administrador
         </Link>
@@ -185,7 +193,7 @@ function Navbar() {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
             <span className="font-bold text-orange-500">DM</span>
           </h1>
-          <a href="tags/tag_base.asp">
+          <a href="/home">
             <div className="hidden lg:flex items-center bg-black text-white rounded-full p-1 text-[14px]">
               <p className="bg-orange-500 text-white rounded-full p-2">Du</p>
               <p className="p-2">Morro</p>
@@ -205,17 +213,31 @@ function Navbar() {
       
 
       {/* Side drawer menu */}
-      <div className={nav ? 'fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300' }>
+      <div className={nav ? 'fixed top-0 right-0 w-[300px] h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300' }>
         <AiOutlineClose
             onClick={()=> setNav(!nav)}
           size={30}
           className='absolute right-4 top-4 cursor-pointer'
         />
         <h2 className='text-2xl p-4'>
-          Best <span className='font-bold'>Eats</span>
+          <span className='font-bold text-orange-500'>Du</span>
+          <span className='font-bold'>Morro</span>
         </h2>
         <nav>
-        {navbarComponent}
+        <ul>
+          <li onClick={handleOptionClick}>
+          <Link to="/home" className="p-4 hover:underline text-xl py-4 flex">Home</Link>
+          </li>
+
+          <li onClick={handleOptionClick}>
+          <Link to="/sobre" className="p-4 hover:underline text-xl py-4 flex">Sobre</Link>
+          </li>
+          <li onClick={handleOptionClick}>
+          <Link to="/login" className="p-4 hover:underline text-xl py-4 flex">
+          Login
+          </Link>
+          </li>
+        </ul>
         </nav>
       </div>
       
