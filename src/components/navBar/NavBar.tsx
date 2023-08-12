@@ -1,7 +1,7 @@
-import { useContext, useState} from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import { BsFillCartFill} from "react-icons/bs";
+import { BsFillCartFill } from "react-icons/bs";
 import { Select, Option } from "@material-tailwind/react";
 import { FaUserClock, FaUserFriends, FaWallet } from "react-icons/fa";
 
@@ -61,7 +61,7 @@ function Navbar() {
       <Link to="/sobre" className="p-4 hover:underline text-xl py-4 flex">
         Sobre
       </Link>
-      <Link to="/itens" className="p-4 hover:underline text-xl py-4 flex">
+      <Link to="/itensCliente" className="p-4 hover:underline text-xl py-4 flex">
         Produtos e Serviços
       </Link>
       <Link
@@ -140,26 +140,24 @@ function Navbar() {
       <Link to="/sobre" className="p-4 hover:underline text-xl py-4 flex">
         Sobre
       </Link>
-      <Link to="/itens" className="p-4 hover:underline text-xl py-4 flex">
+      <Link to="/itensVendedor" className="p-4 hover:underline text-xl py-4 flex">
         Produtos e Serviços
       </Link>
 
       <li className="relative group">
-        <Link
-          to="/categoria"
-          className="py-4 hover:underline text-xl flex"
-        >
-          Vendedor
-        </Link>
-
-        <Select className="absolute hidden group-hover:block bg-orange-100 w-80">
-          <Option>
-            <Link to="/meusItens">Meus Itens</Link>
-          </Option>
-          <Option>
-            <Link to="/cadastroItem">Cadastrar Item</Link>
-          </Option>
-        </Select>
+        <div>
+          <div className="py-4 hover:underline text-xl flex">
+            Vendedor
+          </div>
+          <Select className="absolute hidden group-hover:block bg-orange-100 w-80">
+            <Option>
+              <Link to="/meusItens">Meus Itens</Link>
+            </Option>
+            <Option>
+              <Link to="/cadastroItem">Cadastrar Item</Link>
+            </Option>
+          </Select>
+        </div>
       </li>
       <Link
         to=""
@@ -176,8 +174,8 @@ function Navbar() {
         {usuario.tipo == "adm"
           ? navbarAdm
           : usuario.tipo == "vendedor"
-          ? navbarVendedor
-          : navbarCliente}
+            ? navbarVendedor
+            : navbarCliente}
       </>
     );
   } else {
@@ -190,7 +188,7 @@ function Navbar() {
     <>
       <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4 bg-[#]">
         <div className="flex items-center">
-        
+
           <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
             <span className="font-bold text-orange-500">DM</span>
           </h1>
@@ -202,21 +200,21 @@ function Navbar() {
           </a>
         </div>
         <ul className="hidden md:flex text-orange-500">{navbarComponent}</ul>
-        <div onClick={()=> setNav(!nav)} className='cursor-pointer'>
+        <div onClick={() => setNav(!nav)} className='cursor-pointer'>
           <AiOutlineMenu size={30} />
         </div>
       </div>
 
-      
+
 
 
       {nav ? <div className='bg-black/80 fixed w-full h-screen z-10 top-0 left-0'></div> : ''}
-      
+
 
       {/* Side drawer menu */}
-      <div className={nav ? 'fixed top-0 right-0 w-[300px] h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300' }>
+      <div className={nav ? 'fixed top-0 right-0 w-[300px] h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300'}>
         <AiOutlineClose
-            onClick={()=> setNav(!nav)}
+          onClick={() => setNav(!nav)}
           size={30}
           className='absolute right-4 top-4 cursor-pointer'
         />
@@ -225,20 +223,20 @@ function Navbar() {
           <span className='font-bold'>Morro</span>
         </h2>
         <nav>
-        <ul>
-          <li onClick={handleOptionClick}>
-          <Link to="/home" className="p-4 hover:underline text-xl py-4 flex">Home</Link>
-          </li>
+          <ul>
+            <li onClick={handleOptionClick}>
+              <Link to="/home" className="p-4 hover:underline text-xl py-4 flex">Home</Link>
+            </li>
 
-          <li onClick={handleOptionClick}>
-          <Link to="/sobre" className="p-4 hover:underline text-xl py-4 flex">Sobre</Link>
-          </li>
-          <li onClick={handleOptionClick}>
-          <Link to="/login" className="p-4 hover:underline text-xl py-4 flex">
-          Login
-          </Link>
-          </li>
-        </ul>
+            <li onClick={handleOptionClick}>
+              <Link to="/sobre" className="p-4 hover:underline text-xl py-4 flex">Sobre</Link>
+            </li>
+            <li onClick={handleOptionClick}>
+              <Link to="/login" className="p-4 hover:underline text-xl py-4 flex">
+                Login
+              </Link>
+            </li>
+          </ul>
         </nav>
       </div>
     </>

@@ -1,32 +1,52 @@
 import './Home.css';
-import ListaItensHome from '../../components/itens/listaItens/ListaItensHome';
+import ListaItensHome from '../../components/itens/listaItens/ListaItensHomeCliente';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-import ListaItensHome2 from '../../components/itens/listaItens/ListaItensHome2';
 import Carrossel from '../../components/carrossel/Carrossel';
+import ListaItensHomePreCadastro from '../../components/itens/listaItens/ListaItensHomePreCadastro';
+import ListaItens from '../../components/itens/listaItens/MeusItens';
+import ListaItensHomeCliente from '../../components/itens/listaItens/ListaItensHomeCliente';
+import ListaItensHomeVendedor from '../../components/itens/listaItens/ListaItensHomeVendedor';
 
 function Home() {
 
   const { usuario } = useContext(AuthContext);
   let listaItensComponent;
 
-  let listaItensHome2 = (
-    < ListaItensHome2 />
+  let listaItensHomePreCadastro = (
+    < ListaItensHomePreCadastro />
   );
-  let listaItensHome = (
-    < ListaItensHome />
+  let listaItensHomeCliente = (
+    < ListaItensHomeCliente />
   );
 
+  let listaItensHomeVendedor = (
+    < ListaItensHomeVendedor/>
+  )
+
+
+  if (usuario.token !== "") {
+  listaItensComponent = (
+    <>
+      {usuario.tipo == "cliente"?listaItensHomeCliente:usuario.tipo=="vendedor"?listaItensHomeVendedor:ListaItens}
+    </>
+  );
+} else {
+  listaItensComponent = listaItensHomePreCadastro;
+}
+
+  
+/*
   if (usuario.token !== "") {
     listaItensComponent = (
-      listaItensHome
+      listaItensHomeCliente
     );
   } else {
     listaItensComponent = (
-      listaItensHome2
+      listaItensHomePreCadastro
     )
   }
-
+*/
   return (
     <>
       <div className=' container mx-auto max-w-[1640px] p-4'>

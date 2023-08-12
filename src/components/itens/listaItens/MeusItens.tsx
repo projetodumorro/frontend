@@ -1,13 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { Dna } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
-import Item from "../../models/Item";
-import { buscar } from "../../services/Service";
+import { AuthContext } from "../../../contexts/AuthContext";
+import Item from "../../../models/Item";
+import { buscar } from "../../../services/Service";
 import { Link } from "react-router-dom";
 import Star from "./../../assets/star.svg";
 import Star2 from "./../../assets/star-no-fill.svg";
 import Star3 from "./../../assets/star-half-fill.svg";
+import Reviews from "../../reviews/Reviews";
 
 function ListaItens() {
   const [itens, setItens] = useState<Item[]>([]);
@@ -69,17 +70,10 @@ function ListaItens() {
             <img
               src={item.foto}
               alt="card-image"
-              className="w-[full] h-[full] object-cover "
+              className="w-[full] h-[full] object-cover rounded-t-md"
             />
 
             <div className="p-5 flex flex-col gap-3">
-              <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs bg-gray-100">
-                  stoque ready
-                </span>
-                <span>{item.nome}</span>
-              </div>
-
               <h2 className="text-bold text-2xl overflow-ellipsis overflow-hidden whitespace-nowrap">
                 {item.nome}
               </h2>
@@ -96,17 +90,17 @@ function ListaItens() {
                 </div>
               </div>
 
-              <div className="flex flex-col w-1/12 gap-4">
-                <span className="flex items-center mt-1">
-                  <img src={Star} />
-                  <img src={Star} />
-                  <img src={Star} />
-                  <img src={Star3} />
-                  <img src={Star2} />
-                  <span className="text-xs ml-2 text-gray-500">
-                    20k reviews
-                  </span>
-                </span>
+              <div className='flex justify-between'>
+                <div className='flex items-center mt-1 self-start'>
+                  <img src={Star} alt='Star' />
+                  <img src={Star} alt='Star' />
+                  <img src={Star} alt='Star' />
+                  <img src={Star3} alt='Star3' />
+                  <img src={Star2} alt='Star2' />
+                </div>
+                <div className='text-xs ml-2 text-gray-500 self-end'>
+                  < Reviews /> views
+                </div>
               </div>
 
               <div className="flex mt-5 gap-2">

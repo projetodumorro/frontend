@@ -1,9 +1,9 @@
-import ListaItens from '../itens/listaItens/ListaItens';
+import ListaItensCliente from '../itens/listaItens/ListaItensProdCliente';
 
 function Categoria () {
 
   return (
-    <ListaItens />
+    <ListaItensCliente />
   )
 };
 

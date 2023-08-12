@@ -10,13 +10,17 @@ import { AuthProvider } from './contexts/AuthContext';
 import ListaCategorias from './components/categorias/listaCategorias/ListaCategorias';
 import FormularioCategoria from './components/categorias/formularioCategoria/FormularioCategoria';
 import DeletarCategoria from './components/categorias/deletarCategoria/DeletarCategoria';
-import ListaItens from './components/itens/listaItens/ListaItens';
+import ListaItens from './components/itens/listaItens/ListaItensProdCliente';
 import FormularioItem from './components/itens/formularioItem/FormularioItem';
 import DeletarItem from './components/itens/deletarItem/deletarItem';
 import Perfil from './pages/perfil/Perfil';
 import Navbar from './components/navBar/NavBar';
-import MeusItens from './pages/Itens/MeusItens'
-import Carrinho from './pages/Cart/Carrinho';
+import MeusItens from './components/itens/listaItens/MeusItens'
+import Carrinho from './pages/carrinho/Carrinho';
+import ListaItensCliente from './components/itens/listaItens/ListaItensProdCliente';
+import ListaItensVendedor from './components/itens/listaItens/ListaItensProdVendedor';
+import ListaItensProdCliente from './components/itens/listaItens/ListaItensProdCliente';
+import ListaItensProdVendedor from './components/itens/listaItens/ListaItensProdVendedor';
 
 function App() {
   return (
@@ -33,6 +37,10 @@ function App() {
               <Route path='/perfil' element={<Perfil />} />
               <Route path="/home" element={<Home />} />
               <Route path="/categoria" element={<Categoria />} /> 
+
+
+              <Route path='/itensCliente' element={ < ListaItensProdCliente />} />
+              <Route path='/itensVendedor' element={ < ListaItensProdVendedor />} />
 
               <Route path="/categorias" element={<ListaCategorias />} />
               <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
