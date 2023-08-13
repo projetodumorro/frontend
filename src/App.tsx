@@ -13,9 +13,9 @@ import ListaCategorias from './components/categorias/listaCategorias/ListaCatego
 import ListaItens from './components/itens/listaItens/ListaItensProdCliente';
 import ListaItensProdCliente from './components/itens/listaItens/ListaItensProdCliente';
 import ListaItensProdVendedor from './components/itens/listaItens/ListaItensProdVendedor';
+import DeletarItem from './components/itens/deletarItem/DeletarItem';
 import MeusItens from './components/itens/listaItens/MeusItens'
 import FormularioItem from './components/itens/formularioItem/FormularioItem';
-import DeletarItem from './components/itens/deletarItem/DeletarItem';
 import Carrinho from './pages/carrinho/Carrinho';
 import { AuthProvider } from './contexts/AuthContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
