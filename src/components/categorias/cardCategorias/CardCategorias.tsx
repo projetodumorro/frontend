@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Categoria from '../../../models/Categoria'
 
 interface CardCategoriaProps {
-    categoria: Categoria
+  categoria: Categoria
 }
 /*function TrashIcon() {
   return (
@@ -21,11 +21,9 @@ interface CardCategoriaProps {
   );
 }*/
 
-function CardCategorias({categoria}: CardCategoriaProps) {
-    return (
-      <>
-      
-      
+function CardCategorias({ categoria }: CardCategoriaProps) {
+  return (
+    <>
       <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
         <header className='py-2 px-6 bg-orange-500 text-white font-bold text-2xl'>Categoria</header>
         <p className='p-8 text-1xl bg-slate-200 h-full'><span className='text-bold'>Nome da Categoria: </span>{categoria.nome}</p>
@@ -40,8 +38,8 @@ function CardCategorias({categoria}: CardCategoriaProps) {
         </div>
       </div>
 
-  </>
-    )
-  }
-  
-  export default CardCategorias
+    </>
+  )
+}
+
+export default CardCategorias

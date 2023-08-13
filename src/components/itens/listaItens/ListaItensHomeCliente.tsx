@@ -7,8 +7,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Star from './../../../assets/star.svg'
 import Star2 from './../../../assets/star-no-fill.svg'
 import Star3 from './../../../assets/star-half-fill.svg'
-
 import Reviews from '../../reviews/Reviews';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 function ListaItensHomeCliente() {
   const [itens, setItens] = useState<Item[]>([]);
@@ -20,7 +20,7 @@ function ListaItensHomeCliente() {
 
   useEffect(() => {
     if (token === '') {
-      alert('Você precisa estar logado');
+      toastAlerta('Você precisa estar logado', 'info');
       navigate('/');
     }
   }, [token]);
@@ -34,7 +34,7 @@ function ListaItensHomeCliente() {
       });
     } catch (error: any) {
       if (error.toString().includes('403')) {
-        alert('O token expirou, favor logar novamente')
+        toastAlerta('O token expirou, favor logar novamente', 'info')
         handleLogout()
       }
     }
@@ -43,8 +43,6 @@ function ListaItensHomeCliente() {
   useEffect(() => {
     buscarPostagens();
   }, [itens.length]);
-
-  
 
   return (
     <>
@@ -95,7 +93,6 @@ function ListaItensHomeCliente() {
 
               </div>
 
-
               <div className='flex justify-between'>
                 <div className='flex items-center mt-1 self-start'>
                   <img src={Star} alt='Star' />
@@ -111,21 +108,15 @@ function ListaItensHomeCliente() {
 
               <div className='flex mt-5 gap-2 justify-center '>
 
-                  
-
                 <button className='bg-orange-500/80 hover:bg-orange-500 px-6 py-2 rounded-md text-white font-medium tracking-wider transition
                        '><Link to={'/itensCliente'}>Adquirir {item.categoria?.nome}</Link>
 
                 </button>
               </div>
 
-
-
             </div>
 
           </div>
-
-
 
         ))}
       </div>

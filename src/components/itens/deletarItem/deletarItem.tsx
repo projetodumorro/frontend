@@ -1,11 +1,9 @@
 import {useContext,useState,useEffect} from 'react'
-import { useNavigate, useParams, Link } from 'react-router-dom'
+import { useNavigate, useParams} from 'react-router-dom'
 import { AuthContext } from '../../../contexts/AuthContext'
 import Item from '../../../models/Item'
 import { buscar, deletar } from '../../../services/Service'
-import Star from "../../../assets/"
-import Star2 from "../../../assets/star-no-fill.svg";
-import Star3 from "../../../assets/star-half-fill.svg";
+import { toastAlerta } from '../../../utils/toastAlerta'
 
 function DeletarItem() {
     
@@ -25,7 +23,7 @@ function DeletarItem() {
         })
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          alert('O token expirou, favor logar novamente')
+          toastAlerta('O token expirou, favor logar novamente', 'erro')
           handleLogout()
         }
       }
@@ -33,7 +31,7 @@ function DeletarItem() {
   
     useEffect(() => {
       if (token === '') {
-        alert('Você precisa estar logado')
+        toastAlerta('Você precisa estar logado', 'info')
         navigate('/login')
       }
     }, [token])
@@ -56,10 +54,10 @@ function DeletarItem() {
           }
         })
   
-        alert('Item apagado com sucesso')
+        toastAlerta('Item apagado com sucesso', 'sucesso')
   
       } catch (error) {
-        alert('Erro ao apagar o Item')
+        toastAlerta('Erro ao apagar o item', 'erro')
       }
   
       retornar()
@@ -69,7 +67,6 @@ function DeletarItem() {
     <>
         <div className='container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-1 pt-7 '>
 
-        
         <h1 className='text-orange-600 font-bold text-4xl text-center'>
           Deletar
         </h1>

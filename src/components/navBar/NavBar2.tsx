@@ -1,13 +1,10 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  AiOutlineMenu,
-  AiOutlineClose,
-} from "react-icons/ai";
-import { BsFillCartFill} from "react-icons/bs";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { BsFillCartFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaUserClock, FaUserFriends, FaWallet } from "react-icons/fa";
-import { MdFavorite} from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Navbar = () => {

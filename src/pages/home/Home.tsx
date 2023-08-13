@@ -1,10 +1,9 @@
 import './Home.css';
-import ListaItensHome from '../../components/itens/listaItens/ListaItensHomeCliente';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import Carrossel from '../../components/carrossel/Carrossel';
-import ListaItensHomePreCadastro from '../../components/itens/listaItens/ListaItensHomePreCadastro';
 import ListaItens from '../../components/itens/listaItens/MeusItens';
+import ListaItensHomePreCadastro from '../../components/itens/listaItens/ListaItensHomePreCadastro';
 import ListaItensHomeCliente from '../../components/itens/listaItens/ListaItensHomeCliente';
 import ListaItensHomeVendedor from '../../components/itens/listaItens/ListaItensHomeVendedor';
 
@@ -21,47 +20,33 @@ function Home() {
   );
 
   let listaItensHomeVendedor = (
-    < ListaItensHomeVendedor/>
+    < ListaItensHomeVendedor />
   )
 
-
-  if (usuario.token !== "") {
-  listaItensComponent = (
-    <>
-      {usuario.tipo == "cliente"?listaItensHomeCliente:usuario.tipo=="vendedor"?listaItensHomeVendedor:ListaItens}
-    </>
-  );
-} else {
-  listaItensComponent = listaItensHomePreCadastro;
-}
-
-  
-/*
   if (usuario.token !== "") {
     listaItensComponent = (
-      listaItensHomeCliente
+      <>
+        {usuario.tipo == "cliente" ? listaItensHomeCliente : usuario.tipo == "vendedor" ? listaItensHomeVendedor : ListaItens}
+      </>
     );
   } else {
-    listaItensComponent = (
-      listaItensHomePreCadastro
-    )
+    listaItensComponent = listaItensHomePreCadastro;
   }
-*/
+
   return (
     <>
       <div className=' container mx-auto max-w-[1640px] p-4'>
         <div className='max-h-[500px] relative '>
           {/* Overlay */}
           <div className='absolute w-full h-full text-gray-200 max-h-[500px] bg-black/40 flex flex-col justify-center'>
-   
+
           </div>
           <div className='w-full max-h-[500px] object-cover'>
-          <Carrossel />
+            <Carrossel />
           </div>
-          
+
         </div>
       </div>
-
 
       <div className=' container max-w-[1640px] mx-auto p-4 py-12 grid md:grid-cols-3 gap-6'>
         {/* Card */}

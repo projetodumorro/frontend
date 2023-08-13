@@ -7,20 +7,20 @@ import { buscar } from '../../../services/Service';
 import Star from './../../../assets/star.svg'
 import Star2 from './../../../assets/star-no-fill.svg'
 import Star3 from './../../../assets/star-half-fill.svg'
-import Carrinho from '../../../pages/carrinho/Carrinho';
 import Reviews from '../../reviews/Reviews';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 function ListaItensProdVendedor() {
   const [itens, setItens] = useState<Item[]>([]);
 
   let navigate = useNavigate();
 
-  const { usuario, handleLogout, adicionarProduto } = useContext(AuthContext);
+  const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
   useEffect(() => {
     if (token === '') {
-      alert('Você precisa estar logado');
+      toastAlerta('Você precisa estar logado', 'info');
       navigate('/');
     }
   }, [token]);
@@ -34,7 +34,7 @@ function ListaItensProdVendedor() {
       });
     } catch (error: any) {
       if (error.toString().includes('403')) {
-        alert('O token expirou, favor logar novamente')
+        toastAlerta('O token expirou, favor logar novamente', 'info')
         handleLogout()
       }
     }
@@ -101,7 +101,6 @@ function ListaItensProdVendedor() {
                   < Reviews /> views
                 </div>
               </div>
-
               
             </div>
           </div>

@@ -1,9 +1,8 @@
 import { createContext, ReactNode, useState } from "react"
-
 import UsuarioLogin from "../models/UsuarioLogin"
 import { login } from "../services/Service"
 import Item from "../models/Item"
-// import { toastAlerta } from "../utils/toastAlerta"
+import { toastAlerta } from "../utils/toastAlerta"
 
 interface AuthContextProps {
     usuario: UsuarioLogin
@@ -40,12 +39,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setIsLoading(true)
         try {
             await login(`/usuarios/logar`, userLogin, setUsuario)
-            alert("Usuário logado com sucesso")
+            toastAlerta("Usuário logado com sucesso", 'sucesso')
             setIsLoading(false)
 
         } catch (error) {
             console.log(error)
-            alert("Dados do usuário inconsistentes")
+            toastAlerta("Dados do usuário inconsistentes", 'erro')
             setIsLoading(false)
         }
     }
@@ -73,20 +72,20 @@ export function AuthProvider({ children }: AuthProviderProps) {
         //setItems(state => [...state, produto])
         const existingItem = items.find((item) => item.id === produto.id);
 
-  if (existingItem) {
-    // If the item already exists, increase its quantity
-    setItems((state) =>
-    state.map((item) =>
-        item.id === produto.id ? { ...item, quantidade: item.quantidade + 1 } : item
-    )
-); 
-  }   
-else {
-   
-setItems((state) => [...state, { ...produto, quantidade: 1 }]);
-  }
-}
-    
+        if (existingItem) {
+            // If the item already exists, increase its quantity
+            setItems((state) =>
+                state.map((item) =>
+                    item.id === produto.id ? { ...item, quantidade: item.quantidade + 1 } : item
+                )
+            );
+        }
+        else {
+
+            setItems((state) => [...state, { ...produto, quantidade: 1 }]);
+        }
+    }
+
     function removerProduto(produtoId: number) {
         // Usamos a função filter, com ela fazemos um Filtro no Array usando uma condição
         const coffeeExistsInCart = items.filter(
@@ -97,7 +96,7 @@ setItems((state) => [...state, { ...produto, quantidade: 1 }]);
     }
 
     function limparCart() {
-        alert("Compra Efetuada com Sucesso")
+        alert("Compra efetuada com sucesso")
         setItems([])
     }
 

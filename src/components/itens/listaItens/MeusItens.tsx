@@ -5,10 +5,11 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Item from "../../../models/Item";
 import { buscar } from "../../../services/Service";
 import { Link } from "react-router-dom";
-import Star from "./../../assets/star.svg";
-import Star2 from "./../../assets/star-no-fill.svg";
-import Star3 from "./../../assets/star-half-fill.svg";
+import Star from "../../../assets/star.svg"
+import Star2 from "../../../assets/star-no-fill.svg";
+import Star3 from "../../../assets/star-half-fill.svg";
 import Reviews from "../../reviews/Reviews";
+import { toastAlerta } from "../../../utils/toastAlerta";
 
 function ListaItens() {
   const [itens, setItens] = useState<Item[]>([]);
@@ -20,7 +21,7 @@ function ListaItens() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      toastAlerta("Você precisa estar logado", 'info');
       navigate("/");
     }
   }, [token]);
@@ -34,7 +35,7 @@ function ListaItens() {
       });
     } catch (error: any) {
       if (error.toString().includes("403")) {
-        alert("O token expirou, favor logar novamente");
+        toastAlerta("O token expirou, favor logar novamente", 'info');
         handleLogout();
       }
     }
@@ -104,15 +105,15 @@ function ListaItens() {
               </div>
 
               <div className="flex mt-5 gap-2">
-                
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded">
+
+                <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded">
                   <Link to={`/editarItem/${item.id}`} className="w-full">Editar</Link>
-                  </button>
-                
-                  <button className="bg-black hover:bg-gray-800 text-white w-full py-2 rounded">
+                </button>
+
+                <button className="bg-black hover:bg-gray-800 text-white w-full py-2 rounded">
                   <Link to={`/deletarItem/${item.id}`} className="w-full">Deletar</Link>
-                  </button>
-                
+                </button>
+
               </div>
             </div>
           </div>

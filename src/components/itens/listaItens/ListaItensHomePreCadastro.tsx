@@ -3,19 +3,16 @@ import { Dna } from 'react-loader-spinner';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Item from '../../../models/Item';
 import { buscar } from '../../../services/Service';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Star from './../../../assets/star.svg'
 import Star2 from './../../../assets/star-no-fill.svg'
 import Star3 from './../../../assets/star-half-fill.svg'
 import Reviews from '../../reviews/Reviews';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 
 function ListaItensHomePreCadastro() {
   const [itens, setItens] = useState<Item[]>([]);
-
-
-
-  let navigate = useNavigate();
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
@@ -29,7 +26,7 @@ function ListaItensHomePreCadastro() {
       });
     } catch (error: any) {
       if (error.toString().includes('403')) {
-        alert('O token expirou, favor logar novamente')
+        toastAlerta('O token expirou, favor logar novamente', 'info')
         handleLogout()
       }
     }
@@ -52,7 +49,6 @@ function ListaItensHomePreCadastro() {
           wrapperClass="dna-wrapper mx-auto"
         />
       )}
-
 
       {/* Display dos Produtos */}
       <div className=' container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-1 pt-7 '>
@@ -86,7 +82,6 @@ function ListaItensHomePreCadastro() {
 
               </div>
 
-
               <div className='flex justify-between'>
                 <div className='flex items-center mt-1 self-start'>
                   <img src={Star} alt='Star' />
@@ -107,13 +102,9 @@ function ListaItensHomePreCadastro() {
                 </button>
               </div>
 
-
-
             </div>
 
           </div>
-
-
 
         ))}
       </div>

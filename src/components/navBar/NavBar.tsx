@@ -3,29 +3,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { BsFillCartFill } from "react-icons/bs";
 import { Select, Option } from "@material-tailwind/react";
-import { FaUserClock, FaUserFriends, FaWallet } from "react-icons/fa";
-
-import {
-  AiOutlineMenu,
-  AiOutlineSearch,
-  AiOutlineClose,
-  AiFillTag,
-} from "react-icons/ai";
-import { TbTruckDelivery } from "react-icons/tb";
-import { MdFavorite, MdHelp } from "react-icons/md";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { toastAlerta } from "../../utils/toastAlerta";
 
 function Navbar() {
   let navigate = useNavigate();
   const { usuario, handleLogout } = useContext(AuthContext);
   const [nav, setNav] = useState(false);
 
-  const handleNav = () => {
-    setNav(!nav);
-  };
-
   function logout() {
     handleLogout();
-    alert("Usuário deslogado com sucesso");
+    toastAlerta("Usuário deslogado com sucesso", 'sucesso');
     navigate("/login");
   }
 
@@ -132,6 +120,7 @@ function Navbar() {
       </Link>
     </>
   );
+
   let navbarVendedor = (
     <>
       <Link to="/home" className="p-4 hover:underline text-xl py-4 flex">
@@ -182,8 +171,6 @@ function Navbar() {
     navbarComponent = navBarVisitante;
   }
 
-  console.log(usuario.tipo == "vendedor");
-
   return (
     <>
       <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4 bg-[#]">
@@ -205,11 +192,7 @@ function Navbar() {
         </div>
       </div>
 
-
-
-
       {nav ? <div className='bg-black/80 fixed w-full h-screen z-10 top-0 left-0'></div> : ''}
-
 
       {/* Side drawer menu */}
       <div className={nav ? 'fixed top-0 right-0 w-[300px] h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300'}>
