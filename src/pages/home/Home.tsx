@@ -1,32 +1,36 @@
 import './Home.css';
-import ListaItensHome from '../../components/itens/listaItens/ListaItensHome';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-import ListaItensHome2 from '../../components/itens/listaItens/ListaItensHome2';
 import Carrossel from '../../components/carrossel/Carrossel';
+import ListaItens from '../../components/itens/listaItens/MeusItens';
+import ListaItensHomePreCadastro from '../../components/itens/listaItens/ListaItensHomePreCadastro';
+import ListaItensHomeCliente from '../../components/itens/listaItens/ListaItensHomeCliente';
+import ListaItensHomeVendedor from '../../components/itens/listaItens/ListaItensHomeVendedor';
 
 function Home() {
 
   const { usuario } = useContext(AuthContext);
-
   let listaItensComponent;
 
-  let listaItensHome2 = (
-    < ListaItensHome2 />
+  let listaItensHomePreCadastro = (
+    < ListaItensHomePreCadastro />
+  );
+  let listaItensHomeCliente = (
+    < ListaItensHomeCliente />
   );
 
-  let listaItensHome = (
-    < ListaItensHome />
-  );
+  let listaItensHomeVendedor = (
+    < ListaItensHomeVendedor />
+  )
 
   if (usuario.token !== "") {
     listaItensComponent = (
-      listaItensHome
+      <>
+        {usuario.tipo == "cliente" ? listaItensHomeCliente : usuario.tipo == "vendedor" ? listaItensHomeVendedor : ListaItens}
+      </>
     );
   } else {
-    listaItensComponent = (
-      listaItensHome2
-    )
+    listaItensComponent = listaItensHomePreCadastro;
   }
 
   return (
@@ -35,15 +39,14 @@ function Home() {
         <div className='max-h-[500px] relative '>
           {/* Overlay */}
           <div className='absolute w-full h-full text-gray-200 max-h-[500px] bg-black/40 flex flex-col justify-center'>
-   
+
           </div>
           <div className='w-full max-h-[500px] object-cover'>
-          <Carrossel />
+            <Carrossel />
           </div>
-          
+
         </div>
       </div>
-
 
       <div className=' container max-w-[1640px] mx-auto p-4 py-12 grid md:grid-cols-3 gap-6'>
         {/* Card */}
@@ -85,9 +88,7 @@ function Home() {
           />
         </div>
       </div>
-
       {listaItensComponent}
-
     </>
   );
 }

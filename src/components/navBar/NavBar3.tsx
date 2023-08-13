@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 
-enum UserType {
-  Admin = 'Admin',
-  RegularUser = 'RegularUser',
-  Visitor = 'Visitor',
-}
+enum UserType { Admin = 'Admin', RegularUser = 'RegularUser', Visitor = 'Visitor'}
 
 const NavBar: React.FC = () => {
   const [userType, setUserType] = useState<UserType | null>(null);

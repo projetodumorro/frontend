@@ -1,14 +1,9 @@
-import React from 'react';
 import {
-  FaDribbbleSquare,
-  FaFacebookSquare,
-  FaGithubSquare,
-  FaInstagram,
-  FaTwitterSquare,
+    FaGithubSquare,
 } from 'react-icons/fa';
 
 const Footer = () => {
-  const githubDuMorro = 'https://github.com/projetodumorro/frontend';
+  const githubDuMorro = 'https://github.com/projetodumorro';
   const JhennyGit = 'https://github.com/jhennyticona';
   const CinthiaGit = 'https://github.com/cinthiadepaula';
   const FabiGit = 'https://github.com/fabianaRusso';
