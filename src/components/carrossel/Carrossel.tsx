@@ -3,27 +3,24 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';  // Importe os estilos do autoplay
-
-
 import './Carrossel.css';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-
-import Carrosel1 from '../../assets/Carrosel1.jpg';
-import Carrosel2 from '../../assets/Carrosel2.jpg';
-import Carrosel3 from '../../assets/Carrosel3.jpg';
+import Car1 from '../../assets/carrossel/Carrossel1.jpg';
+import Car2 from '../../assets/carrossel/Carrossel2.jpg';
+import Car3 from '../../assets/carrossel/Carrossel3.jpg';
 
 function Carrossel() {
     var items = [
         { 
-            img: Carrosel1,
-            text: 'Seja Bem-Vindo a DuMorro'
+            img: Car1,
+            text: 'Seja Bem-Vinde a DuMorro'
         },
         { 
-            img: Carrosel2,
+            img: Car2,
             text: 'Transformando Vidas, Impulsionando Negócios.'
         },
         { 
-            img: Carrosel3,
+            img: Car3,
             text: 'Conheça o nosso site!'
         },
     ];
@@ -40,10 +37,11 @@ function Carrossel() {
                 navigation={true}
                 modules={[Pagination, Navigation, Autoplay]}  // Adicione Autoplay aos módulos
                 autoplay={{  // Configure as opções de autoplay
-                    delay: 2000,  // Tempo de espera entre os slides (em milissegundos)
+                    delay: 4000,  // Tempo de espera entre os slides (em milissegundos)
                     disableOnInteraction: false,  // Manter o autoplay após interações do usuário
                 }}
-                className="mySwiper"
+                className="mySwiper" 
+                
             >
             {items.map((item, index) => (
                     <SwiperSlide key={index}>
@@ -53,6 +51,7 @@ function Carrossel() {
                 ))}
                 
             </Swiper>
+           
             
         </>
     );

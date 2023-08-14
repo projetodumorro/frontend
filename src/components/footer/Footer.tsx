@@ -1,9 +1,10 @@
-import React from 'react';
 import {
+
   FaFacebookSquare,
   FaGithubSquare,
   FaInstagram,
   FaTwitterSquare
+
 } from 'react-icons/fa';
 import Home from '../../pages/home/Home';
 
@@ -26,7 +27,6 @@ const Footer = () => {
       </a>
     </span>
         <p className='py-6 text-gray-500 text-lg leading-6'>Transformando vidas, Impulsionando negócios.</p>
-        
         <div className='flex justify-between md:w-[75%] my-6 '> 
         <a href={githubDuMorro} target="_blank" rel="noopener noreferrer">
         <FaGithubSquare size={60}/>
@@ -42,16 +42,10 @@ const Footer = () => {
             </a>
         </div>
       </div>
-      <div className='lg:col-span-2 flex justify-between mt-6'>
-        
-    <div>
-      
-        
-        
-    </div>
-    
-    <div className='font-medium text-gray-400'>
-      
+      <div className='lg:col-span-2 flex justify-between mt-6'>     
+    <div> 
+    </div> 
+    <div className='font-medium text-gray-400'>  
         <h6 className='font-medium text-gray-700'>Equipe</h6>
         <br></br>
         <ul>
@@ -103,8 +97,7 @@ const Footer = () => {
             <div className="sm:flex sm:items-center sm:justify-between"></div>
             <span className="text-sm sm:text-center text-gray-400">© 2023 <a href="https://frontend-ecru-two-98.vercel.app/" className="hover:underline">DuMorro</a>. All Rights Reserved.
             </span>
-    </div>
-    
+    </div> 
   );
 };
 

@@ -1,18 +1,10 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Categoria from '../../../models/Categoria'
-import {
-  List,
-  ListItem,
-  ListItemSuffix,
-  Card,
-  IconButton,
-} from "@material-tailwind/react";
 
 interface CardCategoriaProps {
-    categoria: Categoria
+  categoria: Categoria
 }
-function TrashIcon() {
+/*function TrashIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -27,13 +19,11 @@ function TrashIcon() {
       />
     </svg>
   );
-}
+}*/
 
-function CardCategorias({categoria}: CardCategoriaProps) {
-    return (
-      <>
-      
-      
+function CardCategorias({ categoria }: CardCategoriaProps) {
+  return (
+    <>
       <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
         <header className='py-2 px-6 bg-orange-500 text-white font-bold text-2xl'>Categoria</header>
         <p className='p-8 text-1xl bg-slate-200 h-full'><span className='text-bold'>Nome da Categoria: </span>{categoria.nome}</p>
@@ -47,11 +37,9 @@ function CardCategorias({categoria}: CardCategoriaProps) {
           </Link>
         </div>
       </div>
-      
 
+    </>
+  )
+}
 
-  </>
-    )
-  }
-  
-  export default CardCategorias
+export default CardCategorias
