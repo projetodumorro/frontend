@@ -4,6 +4,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Item from '../../../models/Item';
 import Categoria from '../../../models/Categoria';
 import { buscar, atualizar, cadastrar } from '../../../services/Service';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 function FormularioItem() {
   let navigate = useNavigate();
@@ -57,7 +58,7 @@ function FormularioItem() {
 
   useEffect(() => {
     if (token === '') {
-      alert('Você precisa estar logado');
+      toastAlerta('Você precisa estar logado', 'info');
       navigate('/');
     }
   }, [token]);
@@ -103,14 +104,14 @@ function FormularioItem() {
             Authorization: token,
           },
         });
-        alert('Item atualizado com sucesso');
+        toastAlerta('Item atualizado com sucesso', 'sucesso');
         retornar();
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          alert('O token expirou, favor logar novamente')
+          toastAlerta('O token expirou, favor logar novamente', 'info')
           handleLogout()
         } else {
-          alert('Erro ao atualizar o Item');
+          toastAlerta('Erro ao atualizar o item', 'erro');
         }
       }
     } else {
@@ -121,14 +122,14 @@ function FormularioItem() {
           },
         });
 
-        alert('Item cadastrado com sucesso');
+        toastAlerta('Item cadastrado com sucesso', 'sucesso');
         retornar();
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          alert('O token expirou, favor logar novamente')
+          toastAlerta('O token expirou, favor logar novamente', 'info')
           handleLogout()
         } else {
-          alert('Erro ao cadastrar o Item');
+          toastAlerta('Erro ao cadastrar o item', 'erro');
         }
       }
     }
@@ -138,7 +139,7 @@ function FormularioItem() {
 
   return (
     <div className="container flex flex-col mx-auto items-center">
-      <h1 className="text-4xl text-center my-8 text-orange-500">{id !== undefined ? 'Editar Item' : 'Cadastrar Item'}</h1>
+      <h1 className="text-4xl text-center font-bold my-8 text-black">{id !== undefined ? 'Editar Item' : 'Cadastrar Item'}</h1>
 
       <form onSubmit={gerarNovoItem} className="flex flex-col w-1/2 gap-4">
         <div className="flex flex-col gap-2">
@@ -166,7 +167,7 @@ function FormularioItem() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className='text-orange-500' htmlFor="foto">Link da Foto</label>
+          <label className='text-orange-500' htmlFor="foto">Link da foto</label>
           <input
             value={item.foto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -178,7 +179,7 @@ function FormularioItem() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className='text-orange-500' htmlFor="preco">Preço do Item</label>
+          <label className='text-orange-500' htmlFor="preco">Preço do item</label>
           <input
             value={item.preco}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -190,7 +191,7 @@ function FormularioItem() {
           />
         </div>
         <div className="flex flex-col gap-2 text-orange-500">
-          <label className='text-orange-500' htmlFor="quantidade">Quantidade de Itens</label>
+          <label className='text-orange-500' htmlFor="quantidade">Quantidades disponíveis do item</label>
           <input
             value={item.quantidade}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -213,7 +214,7 @@ function FormularioItem() {
             ))}
           </select>
         </div>
-        <button disabled={carregandoCategoria} type='submit' className='rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto block py-2'>
+        <button disabled={carregandoCategoria} type='submit' className='rounded disabled:bg-slate-200 bg-orange-500/80 hover:bg-orange-500 text-white font-bold w-1/2 mx-auto block py-2'>
           {carregandoCategoria ? <span>Carregando</span> : id !== undefined ? 'Editar' : 'Cadastrar'}
         </button>
       </form>

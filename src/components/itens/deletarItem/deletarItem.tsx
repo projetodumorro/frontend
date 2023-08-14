@@ -1,8 +1,9 @@
 import {useContext,useState,useEffect} from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams} from 'react-router-dom'
 import { AuthContext } from '../../../contexts/AuthContext'
 import Item from '../../../models/Item'
 import { buscar, deletar } from '../../../services/Service'
+import { toastAlerta } from '../../../utils/toastAlerta'
 
 function DeletarItem() {
     
@@ -22,7 +23,7 @@ function DeletarItem() {
         })
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          alert('O token expirou, favor logar novamente')
+          toastAlerta('O token expirou, favor logar novamente', 'erro')
           handleLogout()
         }
       }
@@ -30,7 +31,7 @@ function DeletarItem() {
   
     useEffect(() => {
       if (token === '') {
-        alert('Você precisa estar logado')
+        toastAlerta('Você precisa estar logado', 'info')
         navigate('/login')
       }
     }, [token])
@@ -53,10 +54,10 @@ function DeletarItem() {
           }
         })
   
-        alert('Item apagado com sucesso')
+        toastAlerta('Item apagado com sucesso', 'sucesso')
   
       } catch (error) {
-        alert('Erro ao apagar o Item')
+        toastAlerta('Erro ao apagar o item', 'erro')
       }
   
       retornar()
@@ -64,40 +65,46 @@ function DeletarItem() {
  
   return (
     <>
-    <div className='flex flex-col items-center max-w-[1640px] m-5 px-4 py-12'>
+        <div className='container flex flex-col items-center mx-auto pt-5'>
+        <h1 className='text-orange-600 font-bold text-4xl text-center'> Deletar </h1>
+        
+      <div className="  gap-1 pt-7 ">
+      
+        <h2 className='text-bold'>Tem certeza que deseja deletar?</h2>
+          <div
+            className="w-[300px] h-[550px] bg-slate-50 text-gray-700 shadow-lg rounded-md overflow-hidden py-5"
+            key={item.id}
+          >
+            <img
+              src={item.foto}
+              alt="card-image"
+              className="w-[full] h-[full] object-cover rounded-t-md "
+            />
 
-<h1 className='text-orange-600 font-bold text-4xl text-center'>
-  Deletar
-</h1>
+            <div className="p-5 flex flex-col gap-3">
 
-<div className='grid grid-cols-1 max-w-[300px] lg:grid-cols-1 gap-1 pt-4 center'>
-  <p className='text-bold'>tem certeza que deseja deletar?</p>
-      <img
-        src={item.foto}
-        alt={item.nome}
-        className='w-full h-[200px] object-cover rounded-t-lg'
-      />
-      <div className='flex justify-between px-2 py-5 m-3'>
-        <p className='font-bold'>{item.nome}</p>
+              <h2 className="text-bold text-2xl overflow-ellipsis overflow-hidden whitespace-nowrap">
+                {item.nome}
+              </h2>
+
+              <div className="flex mt-5 gap-2">
+                
+                  <button className="bg-orange-500/80 hover:bg-orange-500 text-white w-full py-2 rounded"
+                  onClick={retornar}>
+                  Não
+                  </button>
+                
+                  <button className="bg-black/80 hover:bg-black text-white w-full py-2 rounded"
+                  onClick={deletarItem}>
+                  Sim
+                  </button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className='flex justify-between px-2 py-4 m-3'>
-      <p>
-          <span className='font-bold text-orange-500 p-3'>
-            R$ {item.preco}
-          </span>
-        </p>
-      </div>
-
-       <button className="bg-orange-500 hover:bg-orange-600 text-white w-full py-2 rounded" onClick={deletarItem}>
-          Sim
-        </button>
-      <button className="bg-black hover:bg-gray-800 text-white w-full py-2 mt-2 rounded" onClick={retornar}>
-         Não
-      </button>
-  </div>
-  </div>
-              </>
+    </>
   )
 }
 
