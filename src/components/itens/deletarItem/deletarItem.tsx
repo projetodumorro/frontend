@@ -65,14 +65,12 @@ function DeletarItem() {
  
   return (
     <>
-        <div className='container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-1 pt-7 '>
-
-        <h1 className='text-orange-600 font-bold text-4xl text-center'>
-          Deletar
-        </h1>
-        <h2 className='text-bold'>Tem certeza que deseja deletar?</h2>
-      <div className=" container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-1 pt-7 ">
+        <div className='container flex flex-col items-center mx-auto pt-5'>
+        <h1 className='text-orange-600 font-bold text-4xl text-center'> Deletar </h1>
         
+      <div className="  gap-1 pt-7 ">
+      
+        <h2 className='text-bold'>Tem certeza que deseja deletar?</h2>
           <div
             className="w-[300px] h-[550px] bg-slate-50 text-gray-700 shadow-lg rounded-md overflow-hidden py-5"
             key={item.id}
