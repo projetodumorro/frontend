@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Item from '../../../models/Item'
 import './CardItem.css';
@@ -10,11 +9,11 @@ interface CardItemProps {
 function CardItem({post}: CardItemProps) {
   return (
     
-    <div className='border-slate-300 border flex flex-col rounded overflow-hidden justify-between'>
+    <div className=' border-slate-300 border flex flex-col rounded-md shadow-md overflow-hidden justify-between'>
       <div>
       <div className="gallery">
         <a target="_blank" href="">
-          <img src={post.foto} alt="" width="20px" height="20px"/>
+          <img src={post.foto} alt="" width="" height=""/>
         </a>
         <div className="desc">{post.nome}</div>
         <div className="desc">{post.descricao}</div>
@@ -23,13 +22,12 @@ function CardItem({post}: CardItemProps) {
       </div>
       </div>
       <div className="flex">
-      <Link to={`/editarItem/${post.id}`} className='w-full text-white bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
+      <Link to={`/editarItem/${post.id}`} className=' w-full text-white bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
           <button>Editar</button>
         </Link>
         <Link to={`/deletarItem/${post.id}`} className='text-white bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
           <button>Deletar</button>
         </Link>
-        
       </div>
     </div>
   )

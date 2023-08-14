@@ -1,14 +1,16 @@
-import React from 'react';
 import {
+
   FaFacebookSquare,
   FaGithubSquare,
   FaInstagram,
   FaTwitterSquare
+
 } from 'react-icons/fa';
 import Home from '../../pages/home/Home';
 
 const Footer = () => {
   const githubDuMorro = 'https://github.com/projetodumorro';
+
   const DuMorro='https://frontend-ecru-two-98.vercel.app/';
   const JhennyIn = 'https://www.linkedin.com/in/jhennyticona/';
   const CinthiaIn = 'https://www.linkedin.com/in/cinthiadepaula/';
@@ -28,6 +30,7 @@ const Footer = () => {
         <p className='py-6 text-gray-500 text-lg leading-6'>Transformando vidas, Impulsionando negócios.</p>
         
         <div className='flex justify-between md:w-[75%] my-6 '> 
+
         <a href={githubDuMorro} target="_blank" rel="noopener noreferrer">
         <FaGithubSquare size={60}/>
       </a>

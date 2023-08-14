@@ -1,9 +1,6 @@
-import React from 'react';
 import FormularioItem from '../formularioItem/FormularioItem';
-
 import 'reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
-
 import './ModalItem.css'
 
 function ModalItem() {

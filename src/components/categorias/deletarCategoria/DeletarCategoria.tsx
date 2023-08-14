@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { AuthContext } from '../../../contexts/AuthContext'
 import Categoria from '../../../models/Categoria'
 import { buscar, deletar } from '../../../services/Service'
+import { toastAlerta } from '../../../utils/toastAlerta'
 
 function DeletarCategoria() {
     const [categoria, setCategoria] = useState<Categoria>({} as Categoria)
@@ -23,7 +24,7 @@ function DeletarCategoria() {
             })
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', 'info')
                 handleLogout()
             }
         }
@@ -31,7 +32,7 @@ function DeletarCategoria() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            toastAlerta('Você precisa estar logado', 'info')
             navigate('/login')
         }
     }, [token])
@@ -54,10 +55,10 @@ function DeletarCategoria() {
                 }
             })
 
-            alert('Categoria apagada com sucesso')
+            toastAlerta('Categoria apagada com sucesso', 'sucesso')
 
         } catch (error) {
-            alert('Erro ao apagar a Categoria')
+            toastAlerta('Erro ao apagar a categoria', 'erro')
         }
 
         retornar()
@@ -69,7 +70,7 @@ function DeletarCategoria() {
             <p className='text-center font-semibold mb-4'>Você tem certeza de que deseja apagar a categoria a seguir?</p>
 
             <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-                <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl bg-orange-500'>Categoria</header>
+                <header className='py-2 px-6 text-white font-bold text-2xl bg-orange-500'>Categoria</header>
                 <p className='p-8 text-3xl bg-slate-200 h-full'><span className='text-bold'>Nome da Categoria: </span>{categoria.nome}</p>
                 <p className='p-8 text-3xl bg-slate-200 h-full'><span className='text-bold'>Descrição: </span>{categoria.descricao}</p>
                 <div className="flex">
