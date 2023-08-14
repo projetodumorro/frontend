@@ -13,13 +13,14 @@ import ListaCategorias from './components/categorias/listaCategorias/ListaCatego
 import ListaItens from './components/itens/listaItens/ListaItensProdCliente';
 import ListaItensProdCliente from './components/itens/listaItens/ListaItensProdCliente';
 import ListaItensProdVendedor from './components/itens/listaItens/ListaItensProdVendedor';
-import DeletarItem from './components/itens/deletarItem/DeletarItem';
+import DeletarItem from './components/itens/deletarItem/deletarItem';
 import MeusItens from './components/itens/listaItens/MeusItens'
 import FormularioItem from './components/itens/formularioItem/FormularioItem';
 import Carrinho from './pages/carrinho/Carrinho';
 import { AuthProvider } from './contexts/AuthContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
