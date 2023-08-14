@@ -72,13 +72,13 @@ const Sobre = () => {
       <div className="container mx-auto p-8">
         <h1 className="text-3xl text-center font-semibold mb-6">Conheça Nossa Equipe</h1>
 
-        <div className="grid grid-cols-2 gap-6 relative  p-4">
+        <div className="grid grid-cols-3 gap-4 relative p-4 ">
           {participantes.map((participante, index) => (
             <div key={index} className="bg-white p-4 rounded-lg shadow-md text-center">
               <Avatar
                 src={participante.imagem}
                 alt={participante.nome}
-                className="w-16 h-16 rounded-full mx-auto mb-2"
+                className="w-32 h-32 rounded-full mx-auto mb-2"
               />
               <h2 className="text-lg font-semibold mb-2">{participante.nome}</h2>
               <div className='flex justify-center mx-20'>

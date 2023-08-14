@@ -5,6 +5,7 @@ import { BsFillCartFill } from "react-icons/bs";
 import { Select, Option } from "@material-tailwind/react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { toastAlerta } from "../../utils/toastAlerta";
+import Logo from './../../assets/DuMorro.svg'
 
 function Navbar() {
   let navigate = useNavigate();
@@ -177,14 +178,15 @@ function Navbar() {
         <div className="flex items-center">
 
           <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
-            <span className="font-bold text-orange-500">DM</span>
+          <img src={Logo} alt=""  className="w-[80px]"/>
           </h1>
-          <a href="/home">
-            <div className="hidden lg:flex items-center bg-black text-white rounded-full p-1 text-[14px]">
-              <p className="bg-orange-500 text-white rounded-full p-2">Du</p>
-              <p className="p-2">Morro</p>
+          
+            <div className="hidden lg:flex items-center bg-black text-white rounded-full p-1 text-[10px]">
+              
+              <p className="bg-orange-500 text-white rounded-full p-1 text-bold" style={{fontSize:'15px'}}>Du</p>
+              <p className="p-1 text-bold" style={{fontSize:'15px'}}>Morro</p>
             </div>
-          </a>
+          
         </div>
         <ul className="hidden md:flex text-orange-500">{navbarComponent}</ul>
         <div onClick={() => setNav(!nav)} className='lg:hidden cursor-pointer '>
