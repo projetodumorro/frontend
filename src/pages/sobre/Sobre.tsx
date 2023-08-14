@@ -47,7 +47,7 @@ const Sobre = () => {
 
       <div>
 
-        <div className="max-w-6xl mx-auto bg-white rounded-lg shadow relative z-10 p-4">
+        <div className="max-w-6xl mx-auto bg-white rounded-lg shadow relative p-4">
           <h1 className="text-3xl font-bold text-center mb-4 text-orange-500">BEM VINDES AO DUMORRO </h1>
           <p className="text-gray-700">
 
@@ -72,7 +72,7 @@ const Sobre = () => {
       <div className="container mx-auto p-8">
         <h1 className="text-3xl text-center font-semibold mb-6">Conheça Nossa Equipe</h1>
 
-        <div className="grid grid-cols-2 gap-6 relative z-10 p-4">
+        <div className="grid grid-cols-2 gap-6 relative  p-4">
           {participantes.map((participante, index) => (
             <div key={index} className="bg-white p-4 rounded-lg shadow-md text-center">
               <Avatar
