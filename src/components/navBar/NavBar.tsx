@@ -187,7 +187,7 @@ function Navbar() {
           </a>
         </div>
         <ul className="hidden md:flex text-orange-500">{navbarComponent}</ul>
-        <div onClick={() => setNav(!nav)} className='cursor-pointer'>
+        <div onClick={() => setNav(!nav)} className='lg:hidden cursor-pointer '>
           <AiOutlineMenu size={30} />
         </div>
       </div>
@@ -195,13 +195,13 @@ function Navbar() {
       {nav ? <div className='bg-black/80 fixed w-full h-screen z-10 top-0 left-0'></div> : ''}
 
       {/* Side drawer menu */}
-      <div className={nav ? 'fixed top-0 right-0 w-[300px] h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300'}>
+      <div className={nav ? 'fixed top-0 right-0 w-[300px] h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white duration-300 z-[100]'}>
         <AiOutlineClose
           onClick={() => setNav(!nav)}
           size={30}
           className='absolute right-4 top-4 cursor-pointer'
         />
-        <h2 className='text-2xl p-4'>
+        <h2 className='text-2xl p-4 z-10'>
           <span className='font-bold text-orange-500'>Du</span>
           <span className='font-bold'>Morro</span>
         </h2>
