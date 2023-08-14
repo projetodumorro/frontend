@@ -6,7 +6,6 @@ import {
   FaTwitterSquare
 
 } from 'react-icons/fa';
-import Home from '../../pages/home/Home';
 
 const Footer = () => {
   const githubDuMorro = 'https://github.com/projetodumorro';
