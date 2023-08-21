@@ -96,7 +96,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     function limparCart() {
-        alert("Compra efetuada com sucesso")
+        toastAlerta("Compra efetuada com sucesso", 'sucesso')
         setItems([])
     }
 
