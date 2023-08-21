@@ -89,7 +89,7 @@ function FormularioItem() {
   }
 
   function retornar() {
-    navigate('/itens');
+    navigate('/meusItens');
   }
 
   async function gerarNovoItem(e: ChangeEvent<HTMLFormElement>) {
